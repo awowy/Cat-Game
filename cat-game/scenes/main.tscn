@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=4 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[ext_resource type="Script" uid="uid://d4gv1xhvpysgd" path="res://scripts/cat.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b8js5l3wh844c" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Cat" type="CharacterBody2D" parent="."]
-script = ExtResource("1_o5qli")
+[node name="Player" parent="." instance=ExtResource("1_sugp2")]
+scale = Vector2(0.9950222, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
+position = Vector2(0, -40.46)
+zoom = Vector2(3.76, 3.76)
+
+[node name="PlaceholderGround" parent="." instance=ExtResource("3_tbgi4")]
+
+[node name="PlaceholderGround2" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(-75, -62)
+scale = Vector2(0.23948878, 0.8154061)
+
+[node name="PlaceholderGround3" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(29, -84.00001)
+scale = Vector2(0.20385347, 0.8535958)
+
+[node name="PlaceholderGround4" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(104.00001, -115)
+scale = Vector2(0.2089081, 1.4073343)
