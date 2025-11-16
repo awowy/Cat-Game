@@ -121,7 +121,3 @@ stream = ExtResource("4_dqkch")
 
 [node name="sfx_bonk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qlg0r")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.76, 3.76)
-position_smoothing_enabled = true

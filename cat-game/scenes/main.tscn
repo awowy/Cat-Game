@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=7 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://mqx5fysu7ua7" path="res://assets/Metroidvania Placeholder BG assets/Gothicvania/Background/NightTownParallax/night-town-background-sky.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://gbk0f8a8t7nt" path="res://scenes/camera_move_detector.gd" id="5_tbgi4"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
+a = Vector2(-132.5899, 0)
+b = Vector2(132.5899, 0)
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,6 +20,10 @@ texture = ExtResource("4_jyhfs")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
 scale = Vector2(0.9950222, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
+position = Vector2(0, -41)
+zoom = Vector2(3.76, 3.76)
 
 [node name="PlaceholderGround" parent="." instance=ExtResource("3_tbgi4")]
 
