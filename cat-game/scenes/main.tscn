@@ -1,28 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=7 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://b8js5l3wh844c" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://mqx5fysu7ua7" path="res://assets/Metroidvania Placeholder BG assets/Gothicvania/Background/NightTownParallax/night-town-background-sky.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://gbk0f8a8t7nt" path="res://scenes/camera_move_detector.gd" id="5_tbgi4"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
+a = Vector2(-132.5899, 0)
+b = Vector2(132.5899, 0)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Background2D" type="Sprite2D" parent="."]
+position = Vector2(0.18660626, -135.64114)
+rotation = 3.1415927
+scale = Vector2(3.1933508, -1.6142354)
+texture = ExtResource("4_jyhfs")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(0, -40.46)
+position = Vector2(0, -41)
 zoom = Vector2(3.76, 3.76)
 
 [node name="PlaceholderGround" parent="." instance=ExtResource("3_tbgi4")]
 
 [node name="PlaceholderGround2" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(-75, -62)
-scale = Vector2(0.23948878, 0.8154061)
+position = Vector2(30.000002, -60)
+scale = Vector2(0.24077399, 0.751028)
 
 [node name="PlaceholderGround3" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(29, -84.00001)
-scale = Vector2(0.20385347, 0.8535958)
+position = Vector2(-57.000008, -40.000004)
+scale = Vector2(0.16152819, 0.76700544)
 
 [node name="PlaceholderGround4" parent="." instance=ExtResource("3_tbgi4")]
-position = Vector2(104.00001, -115)
-scale = Vector2(0.2089081, 1.4073343)
+position = Vector2(114.99999, -88.00001)
+scale = Vector2(0.14811112, 0.4788743)
+
+[node name="PlaceholderGround5" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(0, -116)
+scale = Vector2(0.32430828, 0.30798104)
+script = ExtResource("5_tbgi4")
+
+[node name="Area2D" type="Area2D" parent="PlaceholderGround5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderGround5/Area2D"]
+position = Vector2(0, -3.2469532)
+shape = SubResource("SegmentShape2D_tefeu")
+
+[node name="CameraMoveOnTrigger" type="Marker2D" parent="."]
+position = Vector2(0, -195)
+
+[node name="BuildingOnBeginning2D" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="PlaceholderGround5/Area2D" to="PlaceholderGround5" method="_on_area_2d_body_entered"]
