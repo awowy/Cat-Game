@@ -28,7 +28,7 @@ texture = ExtResource("1_o6xl0")
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(3.875, -41)
+position = Vector2(0, -41)
 zoom = Vector2(3.76, 3.76)
 script = ExtResource("4_tipki")
 
@@ -64,8 +64,7 @@ floor_height = 50
 x_1 = -50
 x_2 = 30
 bg_height = 360
-SPAWN_BUFFER = 50
-BG_SPAWN_BUFFER = 50
+SPAWN_BUFFER = null
 
 [node name="CameraMoveOnTrigger" type="Marker2D" parent="."]
 position = Vector2(0, -195)

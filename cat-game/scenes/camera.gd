@@ -1,12 +1,8 @@
 extends Camera2D
 
-const CAMERA_SPEED = 120
+const CAMERA_SPEED = 70
 
 @onready var camera_triggered = false
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
