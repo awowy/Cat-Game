@@ -23,7 +23,6 @@ extends Node2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var cam_top = cam.position.y - 100
-	print(last_bg_height)
 
 	while last_height > cam_top :
 		last_height = spawn_platform(last_height, type)

@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=12 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scenes/camera.gd" id="4_tipki"]
-[ext_resource type="Script" path="res://scenes/camera_move_detector.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scenes/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
@@ -48,7 +47,6 @@ scale = Vector2(0.14811112, 0.4788743)
 [node name="PlaceholderGround5" parent="Placeholder" instance=ExtResource("3_tbgi4")]
 position = Vector2(0, -83.515)
 scale = Vector2(0.32430828, 0.30798104)
-script = ExtResource("5_tbgi4")
 
 [node name="Area2D" type="Area2D" parent="Placeholder/PlaceholderGround5"]
 
