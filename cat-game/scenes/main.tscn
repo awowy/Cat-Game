@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=9 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://mqx5fysu7ua7" path="res://assets/Metroidvania Placeholder BG assets/Gothicvania/Background/NightTownParallax/night-town-background-sky.png" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://gbk0f8a8t7nt" path="res://scenes/camera_move_detector.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://qe577b6mulla" path="res://scripts/deathtrigger.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d2oykhduxfl88" path="res://scenes/gameover.tscn" id="6_tefeu"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
-a = Vector2(-132.5899, 0)
-b = Vector2(132.5899, 0)
+a = Vector2(-108, 20)
+b = Vector2(-108, -1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(25.5, 185)
 
 [node name="Node2D" type="Node2D"]
 
@@ -42,7 +46,6 @@ scale = Vector2(0.14811112, 0.4788743)
 [node name="PlaceholderGround5" parent="." instance=ExtResource("3_tbgi4")]
 position = Vector2(0, -116)
 scale = Vector2(0.32430828, 0.30798104)
-script = ExtResource("5_tbgi4")
 
 [node name="Area2D" type="Area2D" parent="PlaceholderGround5"]
 
@@ -54,5 +57,33 @@ shape = SubResource("SegmentShape2D_tefeu")
 position = Vector2(0, -195)
 
 [node name="BuildingOnBeginning2D" type="Sprite2D" parent="."]
+
+[node name="deathtrigger" type="Area2D" parent="."]
+position = Vector2(147, -11)
+script = ExtResource("5_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deathtrigger"]
+position = Vector2(18.5, -36.5)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="deathtrigger"]
+position = Vector2(-315, -36)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="deathtrigger"]
+position = Vector2(-146, 60)
+scale = Vector2(15.015, 0.11)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="Gameover" parent="." instance=ExtResource("6_tefeu")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_bottom = -48.0
+scale = Vector2(0.35559675, 0.35559675)
+size_flags_vertical = 4
 
 [connection signal="body_entered" from="PlaceholderGround5/Area2D" to="PlaceholderGround5" method="_on_area_2d_body_entered"]
