@@ -4,18 +4,11 @@ extends CharacterBody2D
 @onready var sfx_jump = $sfx_jump
 @onready var sfx_bonk = $sfx_bonk
 
-var can_move := true
-
 const MOVE_SPEED = 100
 const JUMP_FORCE = 250
 const GRAVITY = 500
 
 func _physics_process(delta: float) -> void:
-	if can_move == false:
-		velocity.x = 0
-		move_and_slide()
-		return
-	
 	#Gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -46,11 +39,3 @@ func _physics_process(delta: float) -> void:
 			sfx_jump.stop()
 			sfx_bonk.play()
 			
-func freeze():
-	can_move = false
-	player_anim.play("idle")
-	return can_move
-
-func unfreeze():
-	can_move = true
-	return can_move

@@ -15,11 +15,6 @@ run/main_scene="uid://b1g2emsj6dnqc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-EventController="*res://scripts/event_controller.gd"
-GameController="*res://scripts/game_controller.gd"
-
 [dotnet]
 
 project/assembly_name="Cat Game"

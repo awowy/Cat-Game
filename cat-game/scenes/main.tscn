@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=7 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://c3uvb7k6lmetm" path="res://scenes/building_on_beginning_2d.tscn" id="2_tipki"]
-[ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://mqx5fysu7ua7" path="res://assets/Metroidvania Placeholder BG assets/Gothicvania/Background/NightTownParallax/night-town-background-sky.png" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://gbk0f8a8t7nt" path="res://scripts/camera_move_detector.gd" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://gbk0f8a8t7nt" path="res://scenes/camera_move_detector.gd" id="5_tbgi4"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
 a = Vector2(-132.5899, 0)
@@ -20,10 +17,6 @@ position = Vector2(0.18660626, -135.64114)
 rotation = 3.1415927
 scale = Vector2(3.1933508, -1.6142354)
 texture = ExtResource("4_jyhfs")
-
-[node name="BuildingOnBeginning2D" parent="." instance=ExtResource("2_tipki")]
-position = Vector2(0, -86)
-scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
 scale = Vector2(0.9950222, 1)
@@ -60,29 +53,6 @@ shape = SubResource("SegmentShape2D_tefeu")
 [node name="CameraMoveOnTrigger" type="Marker2D" parent="."]
 position = Vector2(0, -195)
 
-[node name="Insects" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-98, -5)
-scale = Vector2(0.12684757, 0.12684757)
-
-[node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-58.000004, -44.999996)
-scale = Vector2(0.12684757, 0.12684757)
-
-[node name="Insects3" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(30.999985, -65)
-scale = Vector2(0.12684757, 0.12684757)
-
-[node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(116.999985, -92.99999)
-scale = Vector2(0.12684757, 0.12684757)
-
-[node name="Insects5" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(4.9999924, -120.99999)
-scale = Vector2(0.12684757, 0.12684757)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="InsectsUI" parent="CanvasLayer" instance=ExtResource("7_o6xl0")]
-scale = Vector2(0.597657, 0.597657)
+[node name="BuildingOnBeginning2D" type="Sprite2D" parent="."]
 
 [connection signal="body_entered" from="PlaceholderGround5/Area2D" to="PlaceholderGround5" method="_on_area_2d_body_entered"]
