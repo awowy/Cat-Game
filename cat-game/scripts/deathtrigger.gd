@@ -13,3 +13,5 @@ func gameover():
 	go.visible = true
 	go.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
+	var pm = get_parent().get_node("Pausemenu")
+	pm.process_mode = Node.PROCESS_MODE_DISABLED
