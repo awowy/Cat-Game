@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbykibi67y2wq"]
 
-[ext_resource type="Script" uid="uid://cnjroqvjau1r" path="res://scripts/insects_ui.gd" id="1_ya8aw"]
+[ext_resource type="Script" path="res://scripts/insects_ui.gd" id="1_ya8aw"]
 [ext_resource type="Texture2D" uid="uid://csceyw308a3mx" path="res://assets/insect/coin_spin-Sheet.png" id="2_ng5ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxxrv"]
