@@ -62,7 +62,7 @@ floor_height = 50
 x_1 = -50
 x_2 = 30
 bg_height = 360
-SPAWN_BUFFER = 500
+SPAWN_BUFFER = 200
 BG_SPAWN_BUFFER = 50
 
 [node name="CameraMoveOnTrigger" type="Marker2D" parent="."]
