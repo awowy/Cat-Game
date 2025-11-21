@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 
 @onready var player_anim = $AnimatedSprite2D
 @onready var sfx_jump = $sfx_jump
