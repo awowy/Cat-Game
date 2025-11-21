@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
-[ext_resource type="Script" path="res://scenes/camera.gd" id="4_tipki"]
-[ext_resource type="PackedScene" uid="uid://dxvjvdlsrhoei" path="res://scenes/insects.tscn" id="6_tefeu"]
-[ext_resource type="Script" path="res://scenes/platform_manager.gd" id="7_85g3d"]
+[ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scenes/camera.gd" id="4_tipki"]
+[ext_resource type="PackedScene" path="res://scenes/insects.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scenes/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
-[ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://baycg2ckrtxne" path="res://scenes/background_1.tscn" id="11_ya4ey"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
 a = Vector2(-132.5899, 0)

@@ -24,6 +24,10 @@ GameController="*res://scripts/game_controller.gd"
 
 project/assembly_name="Cat Game"
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_left={
