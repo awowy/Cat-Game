@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbykibi67y2wq"]
+[gd_scene load_steps=3 format=3 uid="uid://bbykibi67y2wq"]
 
 [ext_resource type="Script" path="res://scripts/insects_ui.gd" id="1_ya8aw"]
-[ext_resource type="Texture2D" uid="uid://csceyw308a3mx" path="res://assets/insect/coin_spin-Sheet.png" id="2_ng5ch"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxxrv"]
-atlas = ExtResource("2_ng5ch")
-region = Rect2(0, 0, 80, 80)
+[ext_resource type="Texture2D" uid="uid://rdj5v6umwvdu" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 1_ladybug.png" id="2_ya8aw"]
 
 [node name="InsectsUI" type="Control"]
 layout_mode = 3
@@ -16,9 +12,12 @@ script = ExtResource("1_ya8aw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_qxxrv")
+offset_left = -53.0
+offset_top = -45.0
+offset_right = 1227.0
+offset_bottom = 1235.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_ya8aw")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0

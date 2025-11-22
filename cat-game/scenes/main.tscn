@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=16 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scenes/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scenes/camera.gd" id="4_tipki"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scenes/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
@@ -16,6 +16,12 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
 a = Vector2(-132.5899, 0)
 b = Vector2(132.5899, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
+distance = -23.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trceg"]
+distance = 2.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_eb6dy")
@@ -72,16 +78,13 @@ BG_SPAWN_BUFFER = 50
 position = Vector2(0, -195)
 
 [node name="Insects" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-98, -5)
-scale = Vector2(0.12684757, 0.12684757)
+position = Vector2(-98, -5.0000005)
 
 [node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(-58.000004, -44.999996)
-scale = Vector2(0.12684757, 0.12684757)
 
 [node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(116.999985, -92.99999)
-scale = Vector2(0.12684757, 0.12684757)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -93,6 +96,18 @@ offset_top = 51.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(132, -43)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_eb6dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-149, -49)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_trceg")
 
 [connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Camera2D" method="trigger_camera"]
 [connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Placeholder/PlaceholderGround5" method="_on_area_2d_body_entered"]

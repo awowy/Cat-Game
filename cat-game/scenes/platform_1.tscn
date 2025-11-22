@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://g38sm6kqv7ku"]
 
-[ext_resource type="Script" uid="uid://roym6gubd2lt" path="res://scripts/platform_scored.gd" id="1_r07xg"]
-[ext_resource type="Texture2D" uid="uid://cwmqp4ocw0a3h" path="res://assets/background/window.png" id="1_y3yn5"]
+[ext_resource type="Script" path="res://scripts/platform_scored.gd" id="1_r07xg"]
+[ext_resource type="Texture2D" uid="uid://dmjmcr3s6mlp7" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Platforms/Platform 1_window.png" id="2_r07xg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3yn5"]
-size = Vector2(33, 9)
+size = Vector2(35, 11)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3g4sf"]
 a = Vector2(-4, 13.246414)
@@ -15,11 +15,12 @@ script = ExtResource("1_r07xg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -5
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("1_y3yn5")
+position = Vector2(-2, 0)
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("2_r07xg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 17.5)
+position = Vector2(-2.5, 18.5)
 shape = SubResource("RectangleShape2D_y3yn5")
 one_way_collision = true
 
