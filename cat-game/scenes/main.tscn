@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=16 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scenes/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
@@ -16,6 +16,12 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
 a = Vector2(-132.5899, 0)
 b = Vector2(132.5899, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
+distance = -23.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trceg"]
+distance = 2.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_eb6dy")
@@ -43,12 +49,24 @@ position = Vector2(0, 15)
 position = Vector2(-57.000008, -40.000004)
 scale = Vector2(0.16152819, 0.76700544)
 
+[node name="PlaceholderGround6" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(-77.00001, -156)
+scale = Vector2(0.16152819, 0.76700544)
+
+[node name="PlaceholderGround7" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(62.000008, -221)
+scale = Vector2(0.16152819, 0.76700544)
+
+[node name="PlaceholderGround8" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(-60, -286)
+scale = Vector2(0.16152819, 0.76700544)
+
 [node name="PlaceholderGround4" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(114.99999, -88.00001)
+position = Vector2(115, -85.00001)
 scale = Vector2(0.14811112, 0.4788743)
 
 [node name="PlaceholderGround5" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(0, -83.515)
+position = Vector2(2, -83.00001)
 scale = Vector2(0.32430828, 0.30798104)
 
 [node name="Area2D" type="Area2D" parent="Placeholder/PlaceholderGround5"]
@@ -72,16 +90,13 @@ BG_SPAWN_BUFFER = 50
 position = Vector2(0, -195)
 
 [node name="Insects" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-98, -5)
-scale = Vector2(0.12684757, 0.12684757)
+position = Vector2(-98, -5.0000005)
 
 [node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(-58.000004, -44.999996)
-scale = Vector2(0.12684757, 0.12684757)
 
 [node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(116.999985, -92.99999)
-scale = Vector2(0.12684757, 0.12684757)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -93,6 +108,18 @@ offset_top = 51.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(132, -43)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_eb6dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-149, -49)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_trceg")
 
 [connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Camera2D" method="trigger_camera"]
 [connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Placeholder/PlaceholderGround5" method="_on_area_2d_body_entered"]

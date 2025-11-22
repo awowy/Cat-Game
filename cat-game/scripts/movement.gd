@@ -8,7 +8,7 @@ class_name player
 var can_move := true
 var jumped = false
 const MOVE_SPEED = 100
-const JUMP_FORCE = 250
+const JUMP_FORCE = 300
 const GRAVITY = 500
 
 func _physics_process(delta: float) -> void:
