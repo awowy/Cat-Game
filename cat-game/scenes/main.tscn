@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=13 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+
+[ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scenes/camera.gd" id="4_tipki"]
 [ext_resource type="PackedScene" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scenes/platform_manager.gd" id="7_85g3d"]
@@ -23,7 +25,7 @@ position = Vector2(4, -135)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_o6xl0")
 
-[node name="Player" parent="." instance=ExtResource("1_sugp2")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_sugp2")]
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
@@ -84,6 +86,9 @@ scale = Vector2(0.12684757, 0.12684757)
 
 [node name="InsectsUI" parent="CanvasLayer" instance=ExtResource("7_o6xl0")]
 scale = Vector2(0.597657, 0.597657)
+
+[node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
+offset_top = 51.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)

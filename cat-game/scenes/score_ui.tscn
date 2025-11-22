@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr03xxs4mrix2"]
+
+[ext_resource type="Script" uid="uid://c76qy57kq2k4s" path="res://scenes/score_ui.gd" id="1_hoy1o"]
+
+[node name="score_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hoy1o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 163.0
+offset_bottom = 40.0
+text = "Total Score: 0"
