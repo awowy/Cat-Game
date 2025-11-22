@@ -6,7 +6,7 @@ class_name player
 @onready var sfx_bonk = $sfx_bonk
 
 var can_move := true
-
+var jumped = false
 const MOVE_SPEED = 100
 const JUMP_FORCE = 250
 const GRAVITY = 500
@@ -20,7 +20,9 @@ func _physics_process(delta: float) -> void:
 	#Gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
-	
+	if is_on_floor():
+		jumped = false
+
 	# Left-Right Movement
 	var direction := Input.get_axis('Left', 'Right')
 	if direction:
@@ -33,7 +35,14 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed('Up') and is_on_floor():
 		velocity.y -= JUMP_FORCE
-		sfx_jump.play() 
+		jumped = true
+		sfx_jump.play()
+	elif Input.is_action_just_pressed('Up') and not is_on_floor():
+		var coyote_timer = 0.15
+		coyote_timer -= delta
+		if coyote_timer > 0 and jumped == false:
+			velocity.y -= JUMP_FORCE
+			jumped = true
 	
 	# Direction
 	if direction == 1:
