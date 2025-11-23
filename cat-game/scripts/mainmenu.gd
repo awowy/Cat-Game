@@ -17,4 +17,8 @@ func _on_quit_pressed():
 
 
 func _on_playbutton_pressed() -> void:
+<<<<<<< Updated upstream
 	get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
+=======
+	get_tree().change_scene_to_file("res://cutscene.tscn")
+>>>>>>> Stashed changes

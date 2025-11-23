@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=23 format=3 uid="uid://b1g2emsj6dnqc"]
+=======
+[gd_scene load_steps=20 format=3 uid="uid://b1g2emsj6dnqc"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
