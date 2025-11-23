@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 
+<<<<<<< Updated upstream
 #testing func on main.tscn
 func _on_play_pressed():
 	click.play()
@@ -22,3 +23,13 @@ func _on_quit_pressed():
 	click.play()
 	await click.finished
 	get_tree().quit()
+=======
+#
+	
+func _on_quit_pressed():
+	get_tree().quit()
+
+
+func _on_playbutton_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+>>>>>>> Stashed changes

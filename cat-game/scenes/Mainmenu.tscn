@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://cvh08qpsgwm7i"]
 
 [ext_resource type="Script" uid="uid://dxy2dr51ywhdw" path="res://scripts/mainmenu.gd" id="1_gmv32"]
 [ext_resource type="AudioStream" uid="uid://boqjrsai56qat" path="res://assets/audios/click.mp3" id="2_n47lj"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://i424sjqwkyn1"]
+
+[ext_resource type="Script" uid="uid://b6qyc5y0v1bs4" path="res://scripts/mainmenu.gd" id="1_gmv32"]
+[ext_resource type="AudioStream" path="res://assets/audios/click.mp3" id="2_n47lj"]
+>>>>>>> Stashed changes
 
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
@@ -43,5 +50,9 @@ text = "Quit"
 [node name="click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_n47lj")
 
+<<<<<<< Updated upstream
 [connection signal="pressed" from="menupanel/Playbutton" to="." method="_on_play_pressed"]
+=======
+[connection signal="pressed" from="menupanel/Playbutton" to="." method="_on_playbutton_pressed"]
+>>>>>>> Stashed changes
 [connection signal="pressed" from="menupanel/quitbutton" to="." method="_on_quit_pressed"]
