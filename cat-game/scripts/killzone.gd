@@ -7,4 +7,5 @@ func _on_body_entered(body: Node2D) -> void:
 		timer.start()
 	
 func _on_timer_timeout():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+
