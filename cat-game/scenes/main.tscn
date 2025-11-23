@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=23 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scripts/camera.gd" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dj8ocu35gc2ar" path="res://scripts/killzone.gd" id="6_trceg"]
-[ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scripts/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://qksx7wjcnp2f" path="res://scenes/platform_2.tscn" id="9_a8y0u"]
@@ -22,11 +21,84 @@
 a = Vector2(-132.5899, 0)
 b = Vector2(132.5899, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(309, 25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
+size = Vector2(311, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(45, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(77, 15)
+
+[sub_resource type="GDScript" id="GDScript_a8y0u"]
+script/source = "extends Node
+
+@export var platform_scene_1: PackedScene
+@export var platform_scene_2: PackedScene
+@export var platform_scene_3: PackedScene
+
+@export var collectibles_1: PackedScene
+@export var collectibles_2: PackedScene
+
+@onready var playerr := $\"../Player\"
+@onready var platform_sprite := [platform_scene_1, platform_scene_2, platform_scene_3]
+@onready var insect_sprite := [collectibles_1, collectibles_2]
+@onready var floor_count:= 0
+@onready var floor_index := 0
+@onready var platform_floor := [0,0,0]
+@onready var collectibles := [0,0,0]
+
+@onready var x_positions := [-77, 0, 77]
+@onready var y_pos := -230
+
+const FLOOR_HEIGHT = 75
+
+func spawn_floor():
+	for i in range(3):
+		platform_floor[i] = randi() % 4
+		collectibles[i] = randi() % 3
+		if platform_floor[i] > 0:
+			spawn_platform(platform_floor[i] - 1, x_positions[i], y_pos)
+			if collectibles[i] > 0:
+				spawn_insect(collectibles[i] - 1, x_positions[i] - 5, y_pos - 10)
+	if platform_floor == [0,0,0]:
+		spawn_platform(1, x_positions[1], y_pos)
+	floor_count += 1
+	platform_floor = [0,0,0]
+	y_pos -= FLOOR_HEIGHT
+
+func spawn_platform(sprite, x_pos, y_pos):
+	var platform = platform_sprite[sprite].instantiate()
+	platform.position = Vector2(x_pos, y_pos)
+	platform.floor_index = floor_count
+	add_child(platform)
+
+func delete_floor(index_to_delete):
+	for platform in get_children():
+		if \"floor_index\" in platform:
+			if platform.floor_index == index_to_delete:
+				platform.queue_free()
+
+func spawn_insect(sprite, x_pos, y_pos):
+	var insect = insect_sprite[sprite].instantiate()
+	insect.position = Vector2(x_pos, y_pos)
+	insect.floor_index = floor_count
+	get_parent().add_child(insect)
+
+func delete_insect(index_to_delete):
+	for insect in get_parent().get_children():
+		if \"floor_index\" in insect:
+			if insect.floor_index == index_to_delete:
+				insect.queue_free()
+
+func _process(delta):
+	if playerr.position.y <= y_pos + 2*FLOOR_HEIGHT:
+		spawn_floor()
+
+	for i in range(max(0, floor_count - 20)):  # opsional, loop terakhir 10 floor
+		delete_floor(i)
+		delete_insect(i)
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
 distance = -23.0
@@ -64,8 +136,8 @@ shape = SubResource("WorldBoundaryShape2D_a8y0u")
 [node name="Placeholder" type="Node" parent="."]
 
 [node name="PlaceholderGround5" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(2, -83.00001)
-scale = Vector2(0.32430828, 0.30798104)
+position = Vector2(5, -150)
+scale = Vector2(0.419, 0.308)
 
 [node name="Area2D" type="Area2D" parent="Placeholder/PlaceholderGround5"]
 
@@ -73,27 +145,37 @@ scale = Vector2(0.32430828, 0.30798104)
 position = Vector2(0, -3.2469532)
 shape = SubResource("SegmentShape2D_tefeu")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Placeholder"]
+[node name="ground" type="StaticBody2D" parent="Placeholder"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/ground"]
 position = Vector2(4.5, 33.5)
-shape = SubResource("RectangleShape2D_a8y0u")
+shape = SubResource("RectangleShape2D_jbj1t")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Placeholder"]
+[node name="windowplatform" type="StaticBody2D" parent="Placeholder"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/windowplatform"]
 position = Vector2(72.5, -15)
 shape = SubResource("RectangleShape2D_jkv2x")
+one_way_collision = true
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Placeholder"]
+[node name="windowplatform2" type="StaticBody2D" parent="Placeholder"]
 position = Vector2(-144, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/windowplatform2"]
 position = Vector2(73, -14)
 shape = SubResource("RectangleShape2D_jkv2x")
+one_way_collision = true
+
+[node name="ground2" type="StaticBody2D" parent="Placeholder"]
+position = Vector2(-1, -105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/ground2"]
+position = Vector2(4, 29)
+shape = SubResource("RectangleShape2D_a8y0u")
+one_way_collision = true
 
 [node name="PlatformManager" type="Node2D" parent="."]
-script = ExtResource("7_85g3d")
+script = SubResource("GDScript_a8y0u")
 platform_scene_1 = ExtResource("8_choun")
 platform_scene_2 = ExtResource("9_a8y0u")
 platform_scene_3 = ExtResource("10_jkv2x")
