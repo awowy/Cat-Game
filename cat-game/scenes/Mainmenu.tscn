@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://duja8di83b16f"]
+[gd_scene load_steps=3 format=3 uid="uid://duja8di83b16f"]
 
 [ext_resource type="Script" uid="uid://5p3daa08lrgb" path="res://scripts/mainmenu.gd" id="1_gmv32"]
+[ext_resource type="AudioStream" path="res://assets/audios/click.mp3" id="2_n47lj"]
 
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
@@ -40,6 +41,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_n47lj")
 
 [connection signal="pressed" from="menupanel/Playbutton" to="." method="_on_playbutton_pressed"]
 [connection signal="pressed" from="menupanel/quitbutton" to="." method="_on_quit_pressed"]

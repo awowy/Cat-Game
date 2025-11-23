@@ -10,5 +10,5 @@ func insect_collected(value: int):
 	EventController.emit_signal('platform_scored', total_score)
 
 func platform_scored(value: int):
-	total_score += value
+	total_score += 1
 	EventController.emit_signal('platform_scored', total_score)
