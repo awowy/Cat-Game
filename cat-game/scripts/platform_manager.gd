@@ -62,6 +62,6 @@ func _process(delta):
 	if playerr.position.y <= y_pos + 2*FLOOR_HEIGHT:
 		spawn_floor()
 
-	for i in range(max(0, floor_count - 20)):  # opsional, loop terakhir 10 floor
+	for i in range(max(0, floor_count - 20)):  # opsional, loop terakhir 20 floor
 		delete_floor(i)
 		delete_insect(i)
