@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=18 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scripts/camera.gd" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://cppuevq8qt5m6" path="res://scripts/killzone.gd" id="6_trceg"]
 [ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scripts/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
 a = Vector2(-132.5899, 0)
@@ -39,6 +42,17 @@ scale = Vector2(0.9950222, 1)
 position = Vector2(3.875, -41)
 zoom = Vector2(3.76, 3.76)
 script = ExtResource("5_eb6dy")
+
+[node name="Killzone" type="Area2D" parent="Camera2D"]
+position = Vector2(-130.875, 145)
+script = ExtResource("6_trceg")
+
+[node name="Timer" type="Timer" parent="Camera2D/Killzone"]
+wait_time = 0.6
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_a8y0u")
 
 [node name="Placeholder" type="Node" parent="."]
 
@@ -121,5 +135,7 @@ position = Vector2(-149, -49)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_trceg")
 
+[connection signal="body_entered" from="Camera2D/Killzone" to="Camera2D/Killzone" method="_on_body_entered"]
+[connection signal="timeout" from="Camera2D/Killzone/Timer" to="Camera2D/Killzone" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Camera2D" method="trigger_camera"]
 [connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Placeholder/PlaceholderGround5" method="_on_area_2d_body_entered"]
