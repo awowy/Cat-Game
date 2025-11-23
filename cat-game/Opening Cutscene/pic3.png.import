@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://b2ufvxrjv6kgw"
-path="res://.godot/imported/insect 2_butterfly.png-dd548f91f0fa51e1317b6f5eb2cf8413.ctex"
+uid="uid://ctf1t4ikr8qdr"
+path="res://.godot/imported/pic3.png-0ac8aeca5b9cbf2a6c6940b92ecfe213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 2_butterfly.png"
-dest_files=["res://.godot/imported/insect 2_butterfly.png-dd548f91f0fa51e1317b6f5eb2cf8413.ctex"]
+source_file="res://Opening Cutscene/pic3.png"
+dest_files=["res://.godot/imported/pic3.png-0ac8aeca5b9cbf2a6c6940b92ecfe213.ctex"]
 
 [params]
 

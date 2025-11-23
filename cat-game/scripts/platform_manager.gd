@@ -1,105 +1,67 @@
-extends Node2D
+extends Node
 
-@onready var cam = $"../Camera2D"
+@export var platform_scene_1: PackedScene
+@export var platform_scene_2: PackedScene
+@export var platform_scene_3: PackedScene
 
+@export var collectibles_1: PackedScene
+@export var collectibles_2: PackedScene
 
-@onready var trigger_platform = $"../Placeholder/PlaceholderGround5"
-@onready var last_height = trigger_platform.position.y
-@onready var last_bg_height = -315
+@onready var playerr := $"../Player"
+@onready var platform_sprite := [platform_scene_1, platform_scene_2, platform_scene_3]
+@onready var insect_sprite := [collectibles_1, collectibles_2]
+@onready var floor_count:= 0
+@onready var floor_index := 0
+@onready var platform_floor := [0,0,0]
+@onready var collectibles := [0,0,0]
 
-@export var platform_scene: PackedScene
-@export var bg_scene: PackedScene
-@export var floor_height: int
-@export var x_1: int
-@export var x_2: int
-@export var bg_height: int
+@onready var x_positions := [-77, 0, 77]
+@onready var y_pos := -200
 
-@export var SPAWN_BUFFER: int
-@export var BG_SPAWN_BUFFER: int
-@onready var type = true
-@onready var bg = preload("res://scenes/main.tscn")
-var gen_bg = false
-var moveable_bg1: Node
-var moveable_bg2: Node
-var plat_list_set1 = []
-var plat_list_set2 = []
-var x_coordinates = [-77, 0 ,77]
-var y_coordinates = [-30, -120, -240, -330]
-var n_plats = 6
-var passed = false
+const FLOOR_HEIGHT = 75
 
-func _ready() -> void:
-	moveable_bg1 = bg_scene.instantiate()
-	moveable_bg2 = bg_scene.instantiate()
-	add_child(moveable_bg1)
-	add_child(moveable_bg2)
-	moveable_bg1.position.x = 4
-	moveable_bg2.position.x = 4
-	moveable_bg1.position.y = -1000 
-	moveable_bg2.position.y = -1000
-	spawn_platform()
-	place_platform1(0)
-	place_platform2(0)
+func spawn_floor():
+	for i in range(3):
+		platform_floor[i] = randi() % 4
+		collectibles[i] = randi() % 3
+		if platform_floor[i] > 0:
+			spawn_platform(platform_floor[i] - 1, x_positions[i], y_pos)
+			if collectibles[i] > 0:
+				spawn_insect(collectibles[i] - 1, x_positions[i] - 5, y_pos - 10)
+	if platform_floor == [0,0,0]:
+		spawn_platform(1, x_positions[1], y_pos)
+	floor_count += 1
+	platform_floor = [0,0,0]
+	y_pos -= FLOOR_HEIGHT
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	var cam_top = cam.position.y + 100
-	if cam_top <= last_bg_height:
-		moveable_bg1.position.y = last_bg_height
-		moveable_bg2.position.y = last_bg_height - 360
-		place_platform1(last_bg_height)
-		last_bg_height -= 360
-		place_platform2(last_bg_height)
+func spawn_platform(sprite, x_pos, y_pos):
+	var platform = platform_sprite[sprite].instantiate()
+	platform.position = Vector2(x_pos, y_pos)
+	platform.floor_index = floor_count
+	add_child(platform)
 
+func delete_floor(index_to_delete):
+	for platform in get_children():
+		if "floor_index" in platform:
+			if platform.floor_index == index_to_delete:
+				platform.queue_free()
 
-func spawn_platform() -> void:
-	# two set of platforms is needed for this
-	for i in range(n_plats): # How many platforms do you need?
-		var platform = platform_scene.instantiate()
-		add_child(platform)
-		platform.position = Vector2(-300 * (i + 1), 300 * i) # random position so as to not block anything
-		plat_list_set1.append(platform)
-		
-	for j in range(n_plats):
-		var platform = platform_scene.instantiate()
-		add_child(platform)
-		platform.position = Vector2(-300 * (j + 1), 300 * j) # random position so as to not block anything
-		plat_list_set2.append(platform)
+func spawn_insect(sprite, x_pos, y_pos):
+	var insect = insect_sprite[sprite].instantiate()
+	insect.position = Vector2(x_pos, y_pos)
+	insect.floor_index = floor_count
+	get_parent().add_child(insect)
 
+func delete_insect(index_to_delete):
+	for insect in get_parent().get_children():
+		if "floor_index" in insect:
+			if insect.floor_index == index_to_delete:
+				insect.queue_free()
 
-func place_platform1(last_h):
-	var spawn_points1 = [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
-	for i in range(4): # set the vertical plats first, here there's always 3
-		var random_x = RandomNumberGenerator.new().randi_range(0, 2)
-		plat_list_set1[i].global_position.y = y_coordinates[i] + last_h
-		plat_list_set1[i].global_position.x = x_coordinates[random_x]
-		spawn_points1[i][random_x] = -1
-		
-	for j in range(n_plats - 3): # remaining positions
-		var random_y = RandomNumberGenerator.new().randi_range(0, 2)
-		if spawn_points1[random_y][j] != -1:
-			plat_list_set1[3 + j].global_position.y = y_coordinates[random_y] + last_h
-			plat_list_set1[3 + j].global_position.x = x_coordinates[j]
-			spawn_points1[random_y][j] = -1
-	print("Plat1")
-	
-	
-func place_platform2(last_h):
-	# second set of platforms..
-	var last_h2 = last_h - 360
-	var spawn_points2 = [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
-	for i in range(3): # set the vertical plats first, here there's always 3
-		var random_x = RandomNumberGenerator.new().randi_range(0, 2)
-		plat_list_set2[i].global_position.y = y_coordinates[i] + last_h2
-		plat_list_set2[i].global_position.x = x_coordinates[random_x]
-		spawn_points2[i][random_x] = -1
-	for j in range(n_plats - 3): # remaining positions
-		var random_y = RandomNumberGenerator.new().randi_range(0, 2)
-		if spawn_points2[random_y][j] != -1:
-			plat_list_set2[3 + j].global_position.y = y_coordinates[random_y] + last_h2
-			plat_list_set2[3 + j].global_position.x = x_coordinates[j]
-			spawn_points2[random_y][j] = -1
-		
-	print(spawn_points2)
-	print(":Plat2")
-	print(plat_list_set2[0].global_position.y)
+func _process(delta):
+	if playerr.position.y <= y_pos + 2*FLOOR_HEIGHT:
+		spawn_floor()
+
+	for i in range(max(0, floor_count - 20)):  # opsional, loop terakhir 10 floor
+		delete_floor(i)
+		delete_insect(i)

@@ -21,4 +21,3 @@ func trigger_camera(body: Node2D) -> void:
 func move_camera(delta: float):
 	current_speed = min(current_speed + acceleration * delta, max_speed)
 	position.y -= current_speed * delta
-	print(current_speed)
