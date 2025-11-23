@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=22 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
@@ -15,13 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dd1f74xns6x7" path="res://scenes/insects2.tscn" id="12_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://mq2k4idgy4ev" path="res://scenes/pausemenu.tscn" id="13_trceg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
 a = Vector2(-132.5899, 0)
 b = Vector2(132.5899, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(309, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
+size = Vector2(45, 6)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
 distance = -23.0
@@ -35,7 +40,7 @@ distance = 2.0
 z_index = -10
 position = Vector2(4, -135)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_o6xl0")
+texture = ExtResource("1_jkv2x")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_sugp2")]
 scale = Vector2(0.9950222, 1)
@@ -58,29 +63,6 @@ shape = SubResource("WorldBoundaryShape2D_a8y0u")
 
 [node name="Placeholder" type="Node" parent="."]
 
-[node name="PlaceholderGround" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(0, 15)
-
-[node name="PlaceholderGround3" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(-57.000008, -40.000004)
-scale = Vector2(0.16152819, 0.76700544)
-
-[node name="PlaceholderGround6" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(-77.00001, -156)
-scale = Vector2(0.16152819, 0.76700544)
-
-[node name="PlaceholderGround7" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(62.000008, -221)
-scale = Vector2(0.16152819, 0.76700544)
-
-[node name="PlaceholderGround8" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(-60, -286)
-scale = Vector2(0.16152819, 0.76700544)
-
-[node name="PlaceholderGround4" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(115, -85.00001)
-scale = Vector2(0.14811112, 0.4788743)
-
 [node name="PlaceholderGround5" parent="Placeholder" instance=ExtResource("3_tbgi4")]
 position = Vector2(2, -83.00001)
 scale = Vector2(0.32430828, 0.30798104)
@@ -90,6 +72,25 @@ scale = Vector2(0.32430828, 0.30798104)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/PlaceholderGround5/Area2D"]
 position = Vector2(0, -3.2469532)
 shape = SubResource("SegmentShape2D_tefeu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Placeholder"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/StaticBody2D"]
+position = Vector2(4.5, 33.5)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Placeholder"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/StaticBody2D2"]
+position = Vector2(72.5, -15)
+shape = SubResource("RectangleShape2D_jkv2x")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Placeholder"]
+position = Vector2(-144, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/StaticBody2D3"]
+position = Vector2(73, -14)
+shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="PlatformManager" type="Node2D" parent="."]
 script = ExtResource("7_85g3d")
@@ -134,13 +135,6 @@ shape = SubResource("WorldBoundaryShape2D_eb6dy")
 position = Vector2(-149, -49)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_trceg")
-
-[node name="Pausemenu" parent="." instance=ExtResource("13_trceg")]
-z_index = 100
-offset_left = 1.0
-offset_top = -61.0
-offset_right = 1.0
-offset_bottom = -61.0
 
 [connection signal="body_entered" from="Camera2D/Killzone" to="Camera2D/Killzone" method="_on_body_entered"]
 [connection signal="timeout" from="Camera2D/Killzone/Timer" to="Camera2D/Killzone" method="_on_timer_timeout"]
