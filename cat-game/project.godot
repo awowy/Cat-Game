@@ -19,10 +19,15 @@ config/icon="res://icon.svg"
 
 EventController="*res://scripts/event_controller.gd"
 GameController="*res://scripts/game_controller.gd"
+Saving="*res://scripts/save.gd"
 
 [dotnet]
 
 project/assembly_name="Cat Game"
+
+[global_group]
+
+player=""
 
 [input]
 
