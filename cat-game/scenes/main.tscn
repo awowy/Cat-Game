@@ -1,12 +1,12 @@
-[ext_resource type="Script" uid="uid://qe577b6mulla" path="res://scripts/deathtrigger.gd" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://d2oykhduxfl88" path="res://scenes/gameover.tscn" id="9_gameover"]
+[gd_scene load_steps=16 format=3 uid="uid://b1g2emsj6dnqc"]
+
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scenes/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="4_tipki"]
-[ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_insects"]
+[ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scenes/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
@@ -14,11 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
-a = Vector2(-108, 20)
-b = Vector2(-108, -1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
-size = Vector2(25.5, 185)
+a = Vector2(-132.5899, 0)
+b = Vector2(132.5899, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
 distance = -23.0
@@ -92,47 +89,19 @@ BG_SPAWN_BUFFER = 50
 [node name="CameraMoveOnTrigger" type="Marker2D" parent="."]
 position = Vector2(0, -195)
 
-[node name="Insects" parent="." instance=ExtResource("6_insects")]
+[node name="Insects" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(-98, -5.0000005)
 
-[node name="Insects2" parent="." instance=ExtResource("6_insects")]
+[node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(-58.000004, -44.999996)
 
-[node name="Insects4" parent="." instance=ExtResource("6_insects")]
+[node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(116.999985, -92.99999)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InsectsUI" parent="CanvasLayer" instance=ExtResource("7_o6xl0")]
 scale = Vector2(0.597657, 0.597657)
-
-[node name="deathtrigger" type="Area2D" parent="."]
-position = Vector2(147, -11)
-script = ExtResource("5_tbgi4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="deathtrigger"]
-position = Vector2(18.5, -36.5)
-shape = SubResource("RectangleShape2D_jyhfs")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="deathtrigger"]
-position = Vector2(-315, -36)
-shape = SubResource("RectangleShape2D_jyhfs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="deathtrigger"]
-position = Vector2(-146, 60)
-scale = Vector2(15.015, 0.11)
-shape = SubResource("RectangleShape2D_jyhfs")
-
-[node name="Gameover" parent="." instance=ExtResource("9_gameover")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -48.0
-offset_bottom = -48.0
-scale = Vector2(0.35559675, 0.35559675)
-size_flags_vertical = 4
 
 [node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
 offset_top = 51.0
