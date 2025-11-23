@@ -1,4 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1g2emsj6dnqc"]
+
+[gd_scene load_steps=18 format=3 uid="uid://b1g2emsj6dnqc"]
+
 
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
@@ -16,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dd1f74xns6x7" path="res://scenes/insects2.tscn" id="12_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://mq2k4idgy4ev" path="res://scenes/pausemenu.tscn" id="13_trceg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 

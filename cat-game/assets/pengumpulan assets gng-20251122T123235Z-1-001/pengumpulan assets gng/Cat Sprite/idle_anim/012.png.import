@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://b2ufvxrjv6kgw"
-path="res://.godot/imported/insect 2_butterfly.png-dd548f91f0fa51e1317b6f5eb2cf8413.ctex"
+uid="uid://b40ofxamqyrsm"
+path="res://.godot/imported/012.png-694e5a437e37f5b139eadbc433d14e11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 2_butterfly.png"
-dest_files=["res://.godot/imported/insect 2_butterfly.png-dd548f91f0fa51e1317b6f5eb2cf8413.ctex"]
+source_file="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle_anim/012.png"
+dest_files=["res://.godot/imported/012.png-694e5a437e37f5b139eadbc433d14e11.ctex"]
 
 [params]
 
