@@ -42,7 +42,7 @@ position = Vector2(4, -135)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_jkv2x")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_sugp2")]
+[node name="Player" parent="." instance=ExtResource("1_sugp2")]
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
@@ -135,6 +135,8 @@ shape = SubResource("WorldBoundaryShape2D_eb6dy")
 position = Vector2(-149, -49)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_trceg")
+
+[node name="BubbleManager" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Camera2D/Killzone" to="Camera2D/Killzone" method="_on_body_entered"]
 [connection signal="timeout" from="Camera2D/Killzone/Timer" to="Camera2D/Killzone" method="_on_timer_timeout"]
