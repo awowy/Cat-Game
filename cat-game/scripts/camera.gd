@@ -1,6 +1,6 @@
 extends Camera2D
 
-const CAMERA_SPEED = 70
+const CAMERA_SPEED = 30
 
 @onready var camera_triggered = false
 
