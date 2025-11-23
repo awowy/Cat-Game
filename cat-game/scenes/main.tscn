@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scenes/main.gd" id="1_eb6dy"]
+[ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
-[ext_resource type="Script" path="res://scenes/camera.gd" id="4_tipki"]
+[ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scripts/camera.gd" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
-[ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scenes/platform_manager.gd" id="7_85g3d"]
+[ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scripts/platform_manager.gd" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
@@ -38,7 +38,7 @@ scale = Vector2(0.9950222, 1)
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
 position = Vector2(3.875, -41)
 zoom = Vector2(3.76, 3.76)
-script = ExtResource("4_tipki")
+script = ExtResource("5_eb6dy")
 
 [node name="Placeholder" type="Node" parent="."]
 
