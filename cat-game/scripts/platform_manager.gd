@@ -9,16 +9,11 @@ extends Node2D
 
 @export var platform_scene: PackedScene
 @export var bg_scene: PackedScene
-@export var floor_height: int
-@export var x_1: int
-@export var x_2: int
 @export var bg_height: int
 
 @export var SPAWN_BUFFER: int
 @export var BG_SPAWN_BUFFER: int
-@onready var type = true
-@onready var bg = preload("res://scenes/main.tscn")
-var gen_bg = false
+
 var moveable_bg1: Node
 var moveable_bg2: Node
 var plat_list_set1 = []
@@ -26,7 +21,7 @@ var plat_list_set2 = []
 var x_coordinates = [-77, 0 ,77]
 var y_coordinates = [-30, -120, -240, -330]
 var n_plats = 6
-var passed = false
+
 
 func _ready() -> void:
 	moveable_bg1 = bg_scene.instantiate()
@@ -46,9 +41,9 @@ func _process(_delta: float) -> void:
 	var cam_top = cam.position.y + 100
 	if cam_top <= last_bg_height:
 		moveable_bg1.position.y = last_bg_height
-		moveable_bg2.position.y = last_bg_height - 360
+		moveable_bg2.position.y = last_bg_height - bg_height
 		place_platform1(last_bg_height)
-		last_bg_height -= 360
+		last_bg_height -= bg_height
 		place_platform2(last_bg_height)
 
 
