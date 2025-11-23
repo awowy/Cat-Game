@@ -66,5 +66,5 @@ func _skip_cutscene() -> void:
 
 
 func _cutscene_finished() -> void:
-	print("Cutscene finished.")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
