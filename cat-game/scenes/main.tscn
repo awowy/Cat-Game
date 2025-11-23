@@ -1,7 +1,6 @@
+[gd_scene load_steps=24 format=3 uid="uid://b1g2emsj6dnqc"]
 
-[gd_scene load_steps=20 format=3 uid="uid://b1g2emsj6dnqc"]
-
-
+[ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
@@ -35,6 +34,9 @@ size = Vector2(77, 15)
 [sub_resource type="GDScript" id="GDScript_a8y0u"]
 script/source = "extends Node
 
+@onready var cam = $\"../Camera2D\"
+@onready var bg = preload(\"res://scenes/background_1.tscn\")
+
 @export var platform_scene_1: PackedScene
 @export var platform_scene_2: PackedScene
 @export var platform_scene_3: PackedScene
@@ -54,6 +56,19 @@ script/source = "extends Node
 @onready var y_pos := -230
 
 const FLOOR_HEIGHT = 75
+var bg1: Node
+var bg2: Node
+var last_bg_h = -360
+
+func _ready() -> void:
+	bg1 = bg.instantiate()
+	bg2 = bg.instantiate()
+	add_child(bg1)
+	add_child(bg2)
+	bg1.position.x = 4
+	bg2.position.x = 4
+	bg1.position.y = -1000 
+	bg2.position.y = -1000
 
 func spawn_floor():
 	for i in range(3):
@@ -94,12 +109,18 @@ func delete_insect(index_to_delete):
 				insect.queue_free()
 
 func _process(delta):
+	var cam_top = cam.position.y + 100
 	if playerr.position.y <= y_pos + 2*FLOOR_HEIGHT:
 		spawn_floor()
 
 	for i in range(max(0, floor_count - 20)):  # opsional, loop terakhir 10 floor
 		delete_floor(i)
 		delete_insect(i)
+		# place background
+	if cam_top <= last_bg_h:
+		bg1.position.y = last_bg_h
+		bg2.position.y = last_bg_h - 360
+		last_bg_h -= 360
 "
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
@@ -109,6 +130,7 @@ distance = -23.0
 distance = 2.0
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_jbj1t")
 
 [node name="Background2D" type="Sprite2D" parent="."]
 z_index = -10
@@ -202,8 +224,6 @@ position = Vector2(116.999985, -92.99999)
 scale = Vector2(0.597657, 0.597657)
 
 [node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
-offset_top = 51.0
-script = null
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)

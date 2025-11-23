@@ -4,17 +4,12 @@ extends Control
 func _ready() -> void:
 	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-#
-	
 func _on_quit_pressed():
 	get_tree().quit()
 
 
 func _on_playbutton_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
+	if GameController.has_played != true:
+		get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
+	elif GameController.has_played == true:
+		get_tree().change_scene_to_file("res://scenes/main.tscn")

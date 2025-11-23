@@ -3,7 +3,6 @@ extends Control
 @export var fade_time: float = 1.5
 @export var hold_time: float = 1.0
 @export var skip_key: String = "ui_cancel"
-
 @onready var pics := [
 	$pic1,
 	$pic2,
@@ -66,5 +65,6 @@ func _skip_cutscene() -> void:
 
 
 func _cutscene_finished() -> void:
+	EventController.emit_signal("has_played")
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	

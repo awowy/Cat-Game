@@ -5,11 +5,13 @@ extends Control
 
 
 func _ready() -> void:
-	EventController.connect('platform_scored', on_event_platform_scored)
+	EventController.connect("total_score", total_score_changed)
 	EventController.connect("high_score", high_score)
+	global_position = Vector2(0, 50)
 	
-func on_event_platform_scored(value: int):
+func total_score_changed(value: int):
 	c_score.text = 'Current Score: ' + str(value) 
-
+	print(value)
+	
 func high_score(value: int):
 	h_score.text = 'High Score: ' + str(value)
