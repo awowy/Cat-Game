@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqrd76tw72340"]
+[gd_scene load_steps=4 format=3 uid="uid://bqrd76tw72340"]
 
 [ext_resource type="Texture2D" uid="uid://bnj2q85ant6y5" path="res://assets/text_bubbles/pixel-speech-bubble.png" id="1_sbjt1"]
+[ext_resource type="Script" uid="uid://bot4uotjpsq6a" path="res://scenes/movement_bubble.gd" id="1_y064o"]
 [ext_resource type="Texture2D" uid="uid://cb04ce3oxs7pk" path="res://assets/text_bubbles/game.png" id="2_ehnol"]
 
 [node name="MovementBubble" type="Node2D"]
+script = ExtResource("1_y064o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.092, 0.092)

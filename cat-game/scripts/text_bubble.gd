@@ -1,17 +1,17 @@
 extends Node2D
 
-@onready var move_msg = "res://scenes/movement_bubble.tscn"
-@onready var insect_msg = "res://scenes/insect_bubble.tscn"
-@onready var platform_msg = "res://scenes/platform_bubble.tscn"
+var move_msg = preload("res://scenes/movement_bubble.tscn")
+var insect_msg = preload("res://scenes/insect_bubble.tscn")
+var platform_msg = preload("res://scenes/platform_bubble.tscn")
+var message_spawned = false
 @onready var player = $"../Player"
 
 func _process(delta: float) -> void:
-	if player != null:
+	if player != null and message_spawned == false:
 		ManageMessage()
-		return
 	
 func ManageMessage():
 	var move_instance = move_msg.instantiate()
-	move_instance.position.x = player.position.x + 10
-	move_instance.position.y = player.position.y - 10
-	add_child(move_instance)
+	player.add_child(move_instance)
+	move_instance.position = Vector2(25, -25)
+	message_spawned = true
