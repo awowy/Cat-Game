@@ -96,13 +96,14 @@ func spawn_platform(sprite, x_pos, y_pos):
 func delete_floor(index_to_delete):
 	for c in get_children():
 		if \"floor_index\" in c and c.floor_index == index_to_delete:
+			print(c.this_is)
 			c.queue_free()
 
 func spawn_insect(sprite, x_pos, y_pos):
 	var insect = insect_sprite[sprite].instantiate()
 	insect.position = Vector2(x_pos, y_pos)
 	insect.floor_index = floor_count
-	get_parent().add_child(insect)
+	add_child(insect)
 
 func delete_insect(index_to_delete):
 	for insect in get_parent().get_children():
@@ -138,8 +139,8 @@ script = ExtResource("1_jbj1t")
 
 [node name="Background2D" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(4, -135)
-scale = Vector2(0.2, 0.2)
+position = Vector2(3.500001, -135)
+scale = Vector2(0.20377605, 0.2)
 texture = ExtResource("1_jkv2x")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
