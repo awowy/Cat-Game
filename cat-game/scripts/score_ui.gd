@@ -11,7 +11,6 @@ func _ready() -> void:
 	
 func total_score_changed(value: int):
 	c_score.text = 'Current Score: ' + str(value) 
-	print(value)
 	
 func high_score(value: int):
 	h_score.text = 'High Score: ' + str(value)

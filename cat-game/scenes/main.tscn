@@ -96,7 +96,6 @@ func spawn_platform(sprite, x_pos, y_pos):
 func delete_floor(index_to_delete):
 	for c in get_children():
 		if \"floor_index\" in c and c.floor_index == index_to_delete:
-			print(c)
 			c.queue_free()
 
 func spawn_insect(sprite, x_pos, y_pos):
