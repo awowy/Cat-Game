@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci372cdt321yx"]
+[gd_scene load_steps=4 format=3 uid="uid://ci372cdt321yx"]
 
 [ext_resource type="Script" uid="uid://dplnrxhyeasli" path="res://scripts/gameover.gd" id="1_ncp31"]
+[ext_resource type="AudioStream" uid="uid://d38m3cmkbd0tr" path="res://assets/audios/click.mp3" id="2_2mkfd"]
+[ext_resource type="AudioStream" uid="uid://ct4mibsxq6sey" path="res://assets/audios/metal-pipe-falling-sound-effect.mp3" id="3_h8i2o"]
 
 [node name="Gameover" type="Control"]
 layout_mode = 3
@@ -38,8 +40,10 @@ layout_mode = 2
 text = "home"
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2mkfd")
 
 [node name="gameoversound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h8i2o")
 
 [connection signal="pressed" from="VBoxContainer/retrybutton" to="." method="_on_retrybutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/homebutton" to="." method="_on_homebutton_pressed"]

@@ -17,11 +17,13 @@ func _process(delta: float) -> void:
 
 func _on_retrybutton_pressed():
 	click.play()
+	await click.finished
 	get_tree().paused = false
 	visible = false
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_homebutton_pressed():
 	click.play()
+	await click.finished
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
