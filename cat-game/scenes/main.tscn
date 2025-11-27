@@ -225,13 +225,13 @@ collectibles_1 = ExtResource("6_tefeu")
 collectibles_2 = ExtResource("12_jbj1t")
 
 [node name="Insects" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-98, -5.0000005)
+position = Vector2(-77, -29.999998)
 
 [node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-58.000004, -44.999996)
+position = Vector2(76.00001, -30)
 
 [node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(116.999985, -92.99999)
+position = Vector2(4.0000076, -127)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
