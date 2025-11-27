@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://mq2k4idgy4ev"]
 
 [ext_resource type="Script" uid="uid://cydy0as51pb5r" path="res://scripts/pausemenu.gd" id="1_3otxd"]
-[ext_resource type="Shader" uid="uid://bhy2ekblcxsk6" path="res://scenes/pausemenu.gdshader" id="2_8ljkb"]
+[ext_resource type="Shader" path="res://scenes/pausemenu.gdshader" id="2_8ljkb"]
 [ext_resource type="AudioStream" uid="uid://d38m3cmkbd0tr" path="res://assets/audios/click.mp3" id="2_r33we"]
 [ext_resource type="Texture2D" uid="uid://l1ilcpjovsry" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/title & menu/Untitled278_20251123205254.png" id="3_eptsf"]
 [ext_resource type="Texture2D" uid="uid://bkkn7bwmegnmd" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/title & menu/Untitled280_20251123205340.png" id="4_alvrn"]
@@ -9,6 +9,33 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vpyy4"]
 shader = ExtResource("2_8ljkb")
 shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_vpyy4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8ljkb"]
 resource_name = "blur"
@@ -36,33 +63,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_vpyy4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eptsf"]

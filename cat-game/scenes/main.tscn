@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=27 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scripts/camera.gd" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dj8ocu35gc2ar" path="res://scripts/killzone.gd" id="6_trceg"]
-[ext_resource type="Script" path="res://scenes/window.gd" id="7_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://qksx7wjcnp2f" path="res://scenes/platform_2.tscn" id="9_a8y0u"]
@@ -149,7 +148,7 @@ scale = Vector2(0.20377605, 0.2)
 texture = ExtResource("2_jbj1t")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
-position = Vector2(0, 26)
+position = Vector2(0, 27)
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
