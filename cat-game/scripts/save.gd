@@ -6,10 +6,10 @@ var h_score: int = 0
 
 
 func _ready() -> void:
-	EventController.connect("platform_scored", h_score_decider)
+	EventController.connect("total_score", h_score_decider)
 	EventController.connect("high_score", high_score)
-	
-	
+	EventController.connect("game_over", end_handler)
+
 func save_game(value: int):
 	var save_file = FileAccess.open("res://Save File.txt", FileAccess.WRITE)
 	var json_str = JSON.stringify(value)
@@ -30,3 +30,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_game(h_score)
 		get_tree().quit()
+		
+
+func end_handler():
+	save_game(h_score)

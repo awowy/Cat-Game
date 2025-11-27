@@ -47,16 +47,13 @@ script/source = "extends Node
 @onready var playerr := $\"../Player\"
 @onready var platform_sprite := [platform_scene_1, platform_scene_2, platform_scene_3]
 @onready var insect_sprite := [collectibles_1, collectibles_2]
+@onready var floor_count:= 0
+@onready var floor_index := 0
+@onready var platform_floor := [0,0,0]
+@onready var collectibles := [0,0,0]
 
-var floor_count:= 0
-var floor_index := 0
-var lowest_active_floor := 0
-
-var platform_floor := [0,0,0]
-var collectibles := [0,0,0]
-
-var x_positions := [-77, 0, 77]
-var y_pos := -230
+@onready var x_positions := [-77, 0, 77]
+@onready var y_pos := -230
 
 const FLOOR_HEIGHT = 75
 var bg1: Node
@@ -94,15 +91,16 @@ func spawn_platform(sprite, x_pos, y_pos):
 	add_child(platform)
 
 func delete_floor(index_to_delete):
-	for c in get_children():
-		if \"floor_index\" in c and c.floor_index == index_to_delete:
-			c.queue_free()
+	for platform in get_children():
+		if \"floor_index\" in platform:
+			if platform.floor_index == index_to_delete:
+				platform.queue_free()
 
 func spawn_insect(sprite, x_pos, y_pos):
 	var insect = insect_sprite[sprite].instantiate()
 	insect.position = Vector2(x_pos, y_pos)
 	insect.floor_index = floor_count
-	add_child(insect)
+	get_parent().add_child(insect)
 
 func delete_insect(index_to_delete):
 	for insect in get_parent().get_children():
@@ -114,17 +112,12 @@ func _process(delta):
 	var cam_top = cam.position.y + 100
 	if playerr.position.y <= y_pos + 2*FLOOR_HEIGHT:
 		spawn_floor()
-		if floor_index_to_y(lowest_active_floor) > playerr.position.y + 5*FLOOR_HEIGHT:
-			delete_floor(lowest_active_floor)
-			lowest_active_floor += 1
+		delete_floor(max(0, floor_count - 5))
 
 	if cam_top <= last_bg_h:
 		bg1.position.y = last_bg_h
 		bg2.position.y = last_bg_h - 360
 		last_bg_h -= 360
-		
-func floor_index_to_y(f_index):
-	return -200 - f_index * FLOOR_HEIGHT
 "
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
@@ -138,8 +131,8 @@ script = ExtResource("1_jbj1t")
 
 [node name="Background2D" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(3.500001, -135)
-scale = Vector2(0.20377605, 0.2)
+position = Vector2(4, -135)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_jkv2x")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
