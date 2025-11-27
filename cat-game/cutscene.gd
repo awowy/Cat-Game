@@ -3,14 +3,19 @@ extends Control
 @export var fade_time: float = 1.5
 @export var hold_time: float = 2.5
 @export var skip_key: String = "ui_cancel"
+
+@onready var skip_btn = $Skip
 @onready var pics := [
 	$pic1,
 	$pic2,
 	$pic3,
 	$pic4
 ]
+var tween_start = Tween
+var tween_stop = Tween
 
 func _ready() -> void:
+	print(skip_btn.position)
 	for idx in range(pics.size()):
 		if pics[idx] == null:
 			push_error("Cutscene.gd: node 'pic%d' not found. Check the node name and that the script is attached to the correct scene." % (idx + 1))
@@ -72,3 +77,14 @@ func _cutscene_finished() -> void:
 
 func _on_skip_pressed() -> void:
 	_cutscene_finished()
+
+func _on_skip_mouse_entered() -> void:
+	skip_btn.pivot_offset = skip_btn.size  / 2
+	skip_btn.position = Vector2(397, 465)
+	tween_start = create_tween()
+	tween_start.tween_property(skip_btn, "scale", Vector2.ONE * 0.55, 0.3)
+	
+func _on_skip_mouse_exited() -> void:
+	tween_start.kill()
+	tween_stop = create_tween()
+	tween_stop.tween_property(skip_btn, "scale", Vector2.ONE * 0.484, 0.3)
