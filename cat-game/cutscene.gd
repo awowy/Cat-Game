@@ -1,7 +1,7 @@
 extends Control
 
 @export var fade_time: float = 1.5
-@export var hold_time: float = 1.0
+@export var hold_time: float = 2.5
 @export var skip_key: String = "ui_cancel"
 @onready var pics := [
 	$pic1,

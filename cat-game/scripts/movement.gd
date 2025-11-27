@@ -27,10 +27,17 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis('Left', 'Right')
 	if direction:
 		velocity = Vector2(direction * MOVE_SPEED, velocity.y)
-		player_anim.play('walk')
+		if jumped == false:
+			player_anim.play('walk')
+		elif velocity.y > 10:
+			player_anim.play('fall')
 	else:
 		velocity.x = move_toward(velocity.x, 0, MOVE_SPEED)
-		player_anim.play('idle')
+		if jumped == false:
+			player_anim.play('idle')
+		elif velocity.y > 10:
+			player_anim.play('fall')
+
 	
 	# Jump
 	if Input.is_action_just_pressed('Up') and is_on_floor():
@@ -51,7 +58,8 @@ func _physics_process(delta: float) -> void:
 		player_anim.flip_h = false
 	
 	if jumped == true:
-		player_anim.play('jump')
+		if player_anim.animation != 'fall':
+			player_anim.play('jump')
 	
 	
 	move_and_slide()

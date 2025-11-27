@@ -1,18 +1,32 @@
-[gd_scene load_steps=13 format=3 uid="uid://m6vufvgd1ucs"]
+[gd_scene load_steps=19 format=3 uid="uid://m6vufvgd1ucs"]
 
 [ext_resource type="Script" uid="uid://hvjdweqlfeta" path="res://scripts/movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cf3f0a0cyu38o" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/007.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cblbpndejin86" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/008.png" id="3_d2wvv"]
-[ext_resource type="Texture2D" uid="uid://cmboufj5ti21d" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/jump/006.png" id="3_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://btge8waphdchr" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/009.png" id="4_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://3sk4h4x7vwfa" path="res://assets/audios/jump.mp3" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://bwnu6qdbbms1a" path="res://assets/jump cycle/002.png" id="5_60mlk"]
 [ext_resource type="Texture2D" uid="uid://ckkg8mrggflua" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/010.png" id="5_jej6c"]
 [ext_resource type="AudioStream" uid="uid://bb4n0r3hl53om" path="res://assets/audios/bonk.mp3" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://doholuftu7kqv" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/011.png" id="6_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://c5l6c4f848f5l" path="res://assets/jump cycle/003.png" id="6_i4ail"]
+[ext_resource type="Texture2D" uid="uid://b6pmqp04mk7qi" path="res://assets/jump cycle/004.png" id="7_a38lo"]
 [ext_resource type="Texture2D" uid="uid://bl52h0iacnj58" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/012.png" id="7_oprun"]
+[ext_resource type="Texture2D" uid="uid://6gmdpjqfkufw" path="res://assets/jump cycle/005.png" id="8_4ni07"]
+[ext_resource type="Texture2D" uid="uid://b370xubcwqogp" path="res://assets/jump cycle/006.png" id="9_l71n6"]
+[ext_resource type="Texture2D" uid="uid://du3rc26454e0r" path="res://assets/jump cycle/007.png" id="10_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://bf7apl637kbyh" path="res://assets/jump cycle/008.png" id="11_ujl30"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_60mlk")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_y4r1p")
@@ -23,11 +37,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_y4r1p")
+"texture": ExtResource("11_ujl30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ke2ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l71n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4ni07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a38lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i4ail")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_60mlk")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 0.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -61,8 +93,8 @@ height = 15.151514
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -15)
-scale = Vector2(0.023533728, 0.02353373)
+position = Vector2(-1, -19.25)
+scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"jump"
 

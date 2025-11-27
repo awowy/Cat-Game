@@ -31,10 +31,12 @@ theme_override_constants/separation = 8
 
 [node name="TextureRect" type="TextureRect" parent="menupanel"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("2_krtfg")
 
 [node name="Play" type="TextureButton" parent="menupanel"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("2_45mqy")
 
 [node name="Label" type="Label" parent="menupanel/Play"]
@@ -50,6 +52,7 @@ text = "Play"
 [node name="Quit" type="TextureButton" parent="menupanel"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("3_45mqy")
 
 [node name="Label" type="Label" parent="menupanel/Quit"]
