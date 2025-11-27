@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://m6vufvgd1ucs"]
+[gd_scene load_steps=20 format=3 uid="uid://m6vufvgd1ucs"]
 
 [ext_resource type="Script" uid="uid://hvjdweqlfeta" path="res://scripts/movement.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cf3f0a0cyu38o" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/007.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cblbpndejin86" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/008.png" id="3_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://cwuoco03bmaib" path="res://assets/Idle Sprite.PNG" id="3_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://btge8waphdchr" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Cat Sprite/idle and walk/009.png" id="4_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://3sk4h4x7vwfa" path="res://assets/audios/jump.mp3" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bwnu6qdbbms1a" path="res://assets/jump cycle/002.png" id="5_60mlk"]
@@ -29,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y4r1p")
+"texture": ExtResource("3_qfm1y")
 }],
 "loop": true,
 "name": &"idle",
@@ -96,7 +97,7 @@ script = ExtResource("1_g2els")
 position = Vector2(-1, -19.25)
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
-animation = &"jump"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.0000005)
