@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://mq2k4idgy4ev"]
+[gd_scene load_steps=3 format=3 uid="uid://mq2k4idgy4ev"]
 
 [ext_resource type="Script" uid="uid://cydy0as51pb5r" path="res://scripts/pausemenu.gd" id="1_3otxd"]
+[ext_resource type="AudioStream" uid="uid://d38m3cmkbd0tr" path="res://assets/audios/click.mp3" id="2_r33we"]
 
 [node name="Pausemenu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,7 @@ layout_mode = 2
 text = "Home"
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_r33we")
 
 [connection signal="pressed" from="VBoxContainer/resumebutton" to="." method="_on_resumebutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Retrybutton" to="." method="_on_retrybutton_pressed"]
