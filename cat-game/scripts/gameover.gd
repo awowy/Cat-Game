@@ -35,7 +35,7 @@ func _on_home_pressed() -> void:
 	click.play()
 	await click.finished
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Mainmenu.tscn")
 	
 func hover_handler(button: TextureButton):
 	tween_start = create_tween()
