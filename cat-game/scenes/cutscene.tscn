@@ -63,10 +63,23 @@ texture = ExtResource("5_3q24f")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="."]
+[node name="Skip" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 239.105
-offset_bottom = 23.0
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/font_size = 55
-text = "Press 'esc' key to skip cutscene"
+offset_left = 500.0
+offset_top = 535.99994
+offset_right = 903.0
+offset_bottom = 711.99994
+scale = Vector2(0.48430234, 0.48430234)
+texture_normal = ExtResource("6_bb0yx")
+
+[node name="Label" type="Label" parent="Skip"]
+layout_mode = 0
+offset_left = 148.66745
+offset_top = 24.778036
+offset_right = 188.66745
+offset_bottom = 47.778038
+scale = Vector2(4.221128, 4.221128)
+theme_override_colors/font_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+text = "Skip"
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
