@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dulonnbm6qbbj"]
+
+[ext_resource type="Texture2D" uid="uid://bwvrcsicmvycn" path="res://assets/text_bubbles/pixel-speech-bubble (2).png" id="1_gqoau"]
+
+[node name="InsectBubble" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("1_gqoau")

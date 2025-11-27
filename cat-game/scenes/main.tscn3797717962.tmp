@@ -1,0 +1,146 @@
+[gd_scene load_steps=20 format=3 uid="uid://b1g2emsj6dnqc"]
+
+[ext_resource type="Texture2D" uid="uid://f8tm7w7wla03" path="res://assets/background/background_0.png" id="1_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://84y145u6urx2" path="res://scenes/placeholder_ground.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scripts/camera.gd" id="5_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://dj8ocu35gc2ar" path="res://scripts/killzone.gd" id="6_trceg"]
+[ext_resource type="Script" uid="uid://dmpvte7ftaebx" path="res://scripts/platform_manager.gd" id="7_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://qksx7wjcnp2f" path="res://scenes/platform_2.tscn" id="9_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://c8354cnyyojvk" path="res://scenes/platform_3.tscn" id="10_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://mq2k4idgy4ev" path="res://scenes/pausemenu.tscn" id="13_trceg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tefeu"]
+a = Vector2(-132.5899, 0)
+b = Vector2(132.5899, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eb6dy"]
+distance = -23.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trceg"]
+distance = 2.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(4, -135)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_o6xl0")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_sugp2")]
+scale = Vector2(0.9950222, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
+position = Vector2(3.875, -41)
+zoom = Vector2(3.76, 3.76)
+script = ExtResource("5_eb6dy")
+
+[node name="Killzone" type="Area2D" parent="Camera2D"]
+position = Vector2(-130.875, 145)
+script = ExtResource("6_trceg")
+
+[node name="Timer" type="Timer" parent="Camera2D/Killzone"]
+wait_time = 0.6
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_a8y0u")
+
+[node name="Placeholder" type="Node" parent="."]
+
+[node name="PlaceholderGround" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(0, 15)
+
+[node name="PlaceholderGround3" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(-57.000008, -40.000004)
+scale = Vector2(0.16152819, 0.76700544)
+
+[node name="PlaceholderGround6" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(-77.00001, -156)
+scale = Vector2(0.16152819, 0.76700544)
+
+[node name="PlaceholderGround7" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(62.000008, -221)
+scale = Vector2(0.16152819, 0.76700544)
+
+[node name="PlaceholderGround8" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(-60, -286)
+scale = Vector2(0.16152819, 0.76700544)
+
+[node name="PlaceholderGround4" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(115, -85.00001)
+scale = Vector2(0.14811112, 0.4788743)
+
+[node name="PlaceholderGround5" parent="Placeholder" instance=ExtResource("3_tbgi4")]
+position = Vector2(2, -83.00001)
+scale = Vector2(0.32430828, 0.30798104)
+
+[node name="Area2D" type="Area2D" parent="Placeholder/PlaceholderGround5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/PlaceholderGround5/Area2D"]
+position = Vector2(0, -3.2469532)
+shape = SubResource("SegmentShape2D_tefeu")
+
+[node name="PlatformManager" type="Node2D" parent="."]
+script = ExtResource("7_85g3d")
+platform_scene_1 = ExtResource("8_choun")
+platform_scene_2 = ExtResource("9_a8y0u")
+platform_scene_3 = ExtResource("10_jkv2x")
+collectibles_1 = ExtResource("6_tefeu")
+
+[node name="CameraMoveOnTrigger" type="Marker2D" parent="."]
+position = Vector2(0, -195)
+
+[node name="Insects" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(-98, -5.0000005)
+
+[node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(-58.000004, -44.999996)
+
+[node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(116.999985, -92.99999)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InsectsUI" parent="CanvasLayer" instance=ExtResource("7_o6xl0")]
+scale = Vector2(0.597657, 0.597657)
+
+[node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
+offset_top = 51.0
+script = null
+
+[node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(4, -315)
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(132, -43)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_eb6dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-149, -49)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_trceg")
+
+[node name="Pausemenu" parent="." instance=ExtResource("13_trceg")]
+z_index = 100
+offset_left = 1.0
+offset_top = -61.0
+offset_right = 1.0
+offset_bottom = -61.0
+
+[connection signal="body_entered" from="Camera2D/Killzone" to="Camera2D/Killzone" method="_on_body_entered"]
+[connection signal="timeout" from="Camera2D/Killzone/Timer" to="Camera2D/Killzone" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Camera2D" method="trigger_camera"]
+[connection signal="body_entered" from="Placeholder/PlaceholderGround5/Area2D" to="Placeholder/PlaceholderGround5" method="_on_area_2d_body_entered"]

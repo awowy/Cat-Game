@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://wrjdpsybf7p0"]
+
+[ext_resource type="Texture2D" uid="uid://hokab5o4ebvg" path="res://assets/text_bubbles/pixel-speech-bubble (3).png" id="1_xkedf"]
+
+[node name="PlatformBubble" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("1_xkedf")

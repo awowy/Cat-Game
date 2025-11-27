@@ -46,9 +46,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Direction
 	if direction == 1:
-		player_anim.flip_h = false
-	elif direction == -1:
 		player_anim.flip_h = true
+	elif direction == -1:
+		player_anim.flip_h = false
+	
+	if jumped == true:
+		player_anim.play('jump')
 	
 	
 	move_and_slide()

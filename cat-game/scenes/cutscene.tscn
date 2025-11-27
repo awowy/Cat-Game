@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0uh31qfplgx5"]
+
+[ext_resource type="Script" uid="uid://bna4331oo4fxk" path="res://cutscene.gd" id="1_u4yv4"]
+[ext_resource type="Texture2D" uid="uid://dmw7fogke6oek" path="res://Opening Cutscene/pic1.png" id="2_u4yv4"]
+[ext_resource type="Texture2D" uid="uid://o204isx2labh" path="res://Opening Cutscene/pic2.png" id="3_p30sb"]
+[ext_resource type="Texture2D" uid="uid://ctf1t4ikr8qdr" path="res://Opening Cutscene/pic3.png" id="4_53jq0"]
+[ext_resource type="Texture2D" uid="uid://dux7b5cpfb3j0" path="res://Opening Cutscene/pic4.png" id="5_3q24f"]
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4yv4")
+
+[node name="pic1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u4yv4")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="pic2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p30sb")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="pic3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_53jq0")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="pic4" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3q24f")
+expand_mode = 2
+stretch_mode = 6

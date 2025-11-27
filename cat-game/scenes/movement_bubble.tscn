@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqrd76tw72340"]
+
+[ext_resource type="Texture2D" uid="uid://bnj2q85ant6y5" path="res://assets/text_bubbles/pixel-speech-bubble.png" id="1_sbjt1"]
+[ext_resource type="Texture2D" uid="uid://cb04ce3oxs7pk" path="res://assets/text_bubbles/game.png" id="2_ehnol"]
+
+[node name="MovementBubble" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("1_sbjt1")
+
+[node name="WASD" type="Sprite2D" parent="."]
+position = Vector2(-12, -2.0000002)
+scale = Vector2(0.029355466, 0.029355466)
+texture = ExtResource("2_ehnol")
