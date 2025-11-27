@@ -71,6 +71,7 @@ func _skip_cutscene() -> void:
 
 func _cutscene_finished() -> void:
 	EventController.emit_signal("has_played")
+	MusicPlayer.play_music(load("res://assets/audios/mp3musik.mp3"))
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 

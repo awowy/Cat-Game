@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dj8ocu35gc2ar" path="res://scripts/killzone.gd" id="6_trceg"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
-[ext_resource type="Script" uid="uid://cn3ntfujtmje5" path="res://scripts/window.gd" id="8_dp3eg"]
+[ext_resource type="Script" path="res://scripts/window.gd" id="8_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://qksx7wjcnp2f" path="res://scenes/platform_2.tscn" id="9_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://c8354cnyyojvk" path="res://scenes/platform_3.tscn" id="10_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
@@ -149,7 +149,7 @@ scale = Vector2(0.20377605, 0.2)
 texture = ExtResource("2_jbj1t")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
-position = Vector2(0, 27)
+position = Vector2(0, 27.74)
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
@@ -228,13 +228,13 @@ collectibles_1 = ExtResource("6_tefeu")
 collectibles_2 = ExtResource("12_jbj1t")
 
 [node name="Insects" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-98, -5.0000005)
+position = Vector2(-77, -29.999998)
 
 [node name="Insects2" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-58.000004, -44.999996)
+position = Vector2(76.00001, -30)
 
 [node name="Insects4" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(116.999985, -92.99999)
+position = Vector2(4.0000076, -127)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

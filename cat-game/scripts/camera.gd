@@ -4,7 +4,9 @@ extends Camera2D
 @export var max_speed: float = 90.0
 @export var acceleration: float = 1
 
-@onready var camera_triggered = false
+var camera_triggered = false
+
+
 var current_speed: float = 0.0
 var _started: bool = false
 
