@@ -1,5 +1,5 @@
 [gd_scene load_steps=25 format=3 uid="uid://b1g2emsj6dnqc"]
-
+[ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://coaf5p7klldq2" path="res://scenes/camera_2d.tscn" id="2_jyhfs"]
@@ -153,17 +153,15 @@ shape = SubResource("SegmentShape2D_tefeu")
 position = Vector2(4.5, 33.5)
 shape = SubResource("RectangleShape2D_jbj1t")
 
-[node name="windowplatform" type="StaticBody2D" parent="Placeholder" groups=["window"]]
-script = ExtResource("7_jbj1t")
+[node name="windowplatform" type="StaticBody2D" parent="Placeholder"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/windowplatform"]
 position = Vector2(72.5, -15)
 shape = SubResource("RectangleShape2D_jkv2x")
 one_way_collision = true
 
-[node name="windowplatform2" type="StaticBody2D" parent="Placeholder" groups=["window"]]
+[node name="windowplatform2" type="StaticBody2D" parent="Placeholder"]
 position = Vector2(-144, 1)
-script = ExtResource("7_jbj1t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/windowplatform2"]
 position = Vector2(73, -14)
