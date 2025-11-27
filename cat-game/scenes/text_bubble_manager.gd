@@ -7,7 +7,7 @@ var platform_msg = preload("res://scenes/platform_bubble.tscn")
 
 func _ready() -> void:
 	if player != null and GameController.tutorial_completed == false:
-		'''ManageMessage()'''
+		ManageMessage()
 		GameController.tutorial_completed = true
 
 func ManageMessage():

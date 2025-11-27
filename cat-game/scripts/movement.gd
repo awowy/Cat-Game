@@ -48,8 +48,9 @@ func _physics_process(delta: float) -> void:
 		var coyote_timer = 0.15
 		coyote_timer -= delta
 		if coyote_timer > 0 and jumped == false:
-			velocity.y -= JUMP_FORCE
+			velocity.y = -1*JUMP_FORCE
 			jumped = true
+			sfx_jump.play()
 	
 	# Direction
 	if direction == 1:

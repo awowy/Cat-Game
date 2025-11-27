@@ -15,6 +15,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gmv32")
+tween_intensity = 1.1
+tween_duration = 0.3
 
 [node name="menupanel" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -37,6 +39,7 @@ texture = ExtResource("2_krtfg")
 [node name="Play" type="TextureButton" parent="menupanel"]
 layout_mode = 2
 size_flags_horizontal = 4
+keep_pressed_outside = true
 texture_normal = ExtResource("2_45mqy")
 
 [node name="Label" type="Label" parent="menupanel/Play"]
@@ -74,5 +77,9 @@ position = Vector2(568.00006, -12.9999695)
 scale = Vector2(0.77435017, 0.7600012)
 texture = ExtResource("6_6axmc")
 
+[connection signal="mouse_entered" from="menupanel/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="menupanel/Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="menupanel/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="menupanel/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="menupanel/Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="menupanel/Quit" to="." method="_on_quit_pressed"]

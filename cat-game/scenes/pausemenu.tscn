@@ -164,6 +164,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_eptsf")
 }
 
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_mouse_exited"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_mouse_exited"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

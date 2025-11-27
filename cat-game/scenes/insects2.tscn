@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd1f74xns6x7"]
+[gd_scene load_steps=6 format=3 uid="uid://dd1f74xns6x7"]
 
 [ext_resource type="Script" uid="uid://h7e644ln5bsu" path="res://scripts/insects.gd" id="1_pnd6l"]
 [ext_resource type="Texture2D" uid="uid://b2ufvxrjv6kgw" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 2_butterfly.png" id="2_pnd6l"]
 [ext_resource type="AudioStream" uid="uid://ct4mibsxq6sey" path="res://assets/audios/metal-pipe-falling-sound-effect.mp3" id="3_lnyy5"]
+[ext_resource type="AudioStream" uid="uid://bg63xud5uc2wh" path="res://assets/audios/retro-coin-3-236679.mp3" id="4_q4f8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww04n"]
 radius = 240.00003
@@ -25,5 +26,8 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ww04n")
+
+[node name="sfx_collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q4f8a")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
