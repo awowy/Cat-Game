@@ -4,11 +4,13 @@ func _ready():
 	$AnimationPlayer.play("RESET")
 
 func resume():
+	self.visible = false
 	Input.action_release("Pause")
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
 
 func pause():
+	self.visible = true
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
 

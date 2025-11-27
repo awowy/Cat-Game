@@ -240,6 +240,7 @@ scale = Vector2(0.597657, 0.597657)
 [node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
 
 [node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("17_pause")]
+visible = false
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)
