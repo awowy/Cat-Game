@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ocil7uree6io"]
 
-[ext_resource type="Texture2D" uid="uid://bmeujek62ia15" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125555.png" id="1_1niro"]
+[ext_resource type="Texture2D" uid="uid://tthmwujqg7k5" path="res://assets/background/background_1.png" id="1_1niro"]
 
 [node name="Sprite2D" type="Sprite2D"]
 z_index = -10

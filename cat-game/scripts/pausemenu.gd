@@ -20,23 +20,17 @@ func _process(delta: float) -> void:
 			get_tree().paused = false
 
 func _on_resumebutton_pressed() -> void:
-	click.play()
-	await click.finished
 	paused = false
 	visible = false
 	get_tree().paused = false
 
 func _on_retrybutton_pressed() -> void:
-	click.play()
-	await click.finished
 	paused = false
 	visible = false
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_homebutton_pressed() -> void:
-	click.play()
-	await click.finished
 	paused = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")

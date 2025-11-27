@@ -30,7 +30,6 @@ project/assembly_name="Cat Game"
 Player=""
 Insect=""
 window=""
-player=""
 
 [input]
 

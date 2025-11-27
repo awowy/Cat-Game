@@ -11,14 +11,13 @@ radius = 240.00003
 scale = Vector2(0.05, 0.05)
 script = ExtResource("1_pnd6l")
 
-[node name="sfx_metalpipe" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(0.9999998, 0.9999998)
-stream = ExtResource("3_lnyy5")
-volume_db = 11.107
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.355, 0.355)
 texture = ExtResource("2_pnd6l")
+
+[node name="sfx_metalpipe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lnyy5")
+volume_db = 11.107
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.99999994, 0.99999994)
