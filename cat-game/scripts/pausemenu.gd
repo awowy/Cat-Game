@@ -1,42 +1,32 @@
 extends Control
 
-var paused = false
-@onready var click = $click
+func _ready():
+	$AnimationPlayer.play("RESET")
 
-func _ready() -> void:
-	visible = false
-	process_mode = Node.PROCESS_MODE_ALWAYS
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Pause"):
-		click.play() 
-		if not paused:
-			paused = true
-			visible = true
-			get_tree().paused = true
-		else:
-			paused = false
-			visible = false
-			get_tree().paused = false
-
-func _on_resumebutton_pressed() -> void:
-	click.play()
-	await click.finished
-	paused = false
-	visible = false
+func resume():
 	get_tree().paused = false
+	$AnimationPlayer.play_backwards("blur")
 
-func _on_retrybutton_pressed() -> void:
-	click.play()
-	await click.finished
-	paused = false
-	visible = false
+func pause():
+	get_tree().paused = true
+	$AnimationPlayer.play("blur")
+
+func testEsc():
+	if Input.is_action_just_pressed("Pause") and !get_tree().paused:
+		pause()
+	elif Input.is_action_just_pressed("Pause") and get_tree().paused:
+		resume()
+
+
+func _on_resume_pressed():
+	resume()
+
+func _on_restart_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
-func _on_homebutton_pressed() -> void:
-	click.play()
-	await click.finished
-	paused = false
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+func _on_quit_pressed():
+	get_tree().quit()
+
+func _process(_delta):
+	testEsc()
