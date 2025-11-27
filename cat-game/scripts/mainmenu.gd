@@ -17,4 +17,4 @@ func _on_quit_pressed():
 
 
 func _on_playbutton_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/intro_cutscene.tscn")
+	get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
