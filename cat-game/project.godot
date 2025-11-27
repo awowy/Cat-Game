@@ -22,6 +22,10 @@ GameController="*res://scripts/game_controller.gd"
 Saving="*res://scripts/save.gd"
 MusicPlayer="*res://scenes/MusicPlayer.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Cat Game"
@@ -29,9 +33,9 @@ project/assembly_name="Cat Game"
 [global_group]
 
 Player=""
-player=""
 Insect=""
 window=""
+player=""
 
 [input]
 
