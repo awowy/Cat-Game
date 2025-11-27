@@ -18,7 +18,8 @@ stream = ExtResource("3_lnyy5")
 volume_db = 11.107
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.355, 0.355)
+position = Vector2(0, 22.925)
+scale = Vector2(0.415, 0.415)
 texture = ExtResource("2_pnd6l")
 
 [node name="Area2D" type="Area2D" parent="."]

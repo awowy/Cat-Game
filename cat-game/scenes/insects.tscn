@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cj5qto4fg2mwq"]
 
 [ext_resource type="Script" uid="uid://h7e644ln5bsu" path="res://scripts/insects.gd" id="1_j8gca"]
-[ext_resource type="Texture2D" uid="uid://rdj5v6umwvdu" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 1_ladybug.png" id="2_b1svg"]
+[ext_resource type="Texture2D" uid="uid://bl16xpxt6alcw" path="res://assets/insect/insect 4_caterpillar.png" id="2_ww04n"]
 [ext_resource type="AudioStream" uid="uid://ct4mibsxq6sey" path="res://assets/audios/metal-pipe-falling-sound-effect.mp3" id="3_b1svg"]
 [ext_resource type="AudioStream" uid="uid://bg63xud5uc2wh" path="res://assets/audios/retro-coin-3-236679.mp3" id="4_ww04n"]
 
@@ -19,7 +19,8 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_ww04n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_b1svg")
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("2_ww04n")
 
 [node name="sfx_metalpipe" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_b1svg")

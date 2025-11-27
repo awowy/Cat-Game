@@ -27,6 +27,7 @@ func _on_retry_pressed() -> void:
 	await click.finished
 	get_tree().paused = false
 	visible = false
+	MusicPlayer.play_music(load("res://assets/audios/mp3musik.mp3"))
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 	

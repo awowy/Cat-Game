@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvnyillq4ea15"]
+
+[ext_resource type="Script" uid="uid://h7e644ln5bsu" path="res://scripts/insects.gd" id="1_4uu2g"]
+[ext_resource type="AudioStream" uid="uid://ct4mibsxq6sey" path="res://assets/audios/metal-pipe-falling-sound-effect.mp3" id="2_shob8"]
+[ext_resource type="Texture2D" uid="uid://b2ufvxrjv6kgw" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 2_butterfly.png" id="3_1qhvk"]
+[ext_resource type="AudioStream" uid="uid://bg63xud5uc2wh" path="res://assets/audios/retro-coin-3-236679.mp3" id="4_2kh64"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ww04n"]
+radius = 240.00003
+
+[node name="Insects2" type="Node2D" groups=["Insect"]]
+scale = Vector2(0.03, 0.03)
+script = ExtResource("1_4uu2g")
+
+[node name="sfx_metalpipe" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.9999998, 0.9999998)
+stream = ExtResource("2_shob8")
+volume_db = 11.107
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("3_1qhvk")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ww04n")
+
+[node name="sfx_collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2kh64")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

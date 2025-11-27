@@ -7,6 +7,8 @@ class_name player
 
 var can_move := true
 var jumped = false
+var current_floor := 0
+
 const MOVE_SPEED = 100
 const JUMP_FORCE = 300
 const GRAVITY = 500
