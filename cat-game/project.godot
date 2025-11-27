@@ -28,8 +28,9 @@ project/assembly_name="Cat Game"
 [global_group]
 
 Player=""
-window=""
 player=""
+Insect=""
+window=""
 
 [input]
 
