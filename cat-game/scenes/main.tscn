@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=25 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dr03xxs4mrix2" path="res://scenes/score_ui.tscn" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dd1f74xns6x7" path="res://scenes/insects2.tscn" id="12_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://mq2k4idgy4ev" path="res://scenes/pausemenu.tscn" id="16_jbj1t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 
@@ -228,6 +229,8 @@ position = Vector2(116.999985, -92.99999)
 scale = Vector2(0.597657, 0.597657)
 
 [node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("16_jbj1t")]
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)
