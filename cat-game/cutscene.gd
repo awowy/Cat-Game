@@ -68,3 +68,7 @@ func _cutscene_finished() -> void:
 	EventController.emit_signal("has_played")
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
+
+
+func _on_skip_pressed() -> void:
+	_cutscene_finished()
