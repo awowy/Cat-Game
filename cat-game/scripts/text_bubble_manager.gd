@@ -3,13 +3,12 @@ extends Node2D
 var move_msg = preload("res://scenes/movement_bubble.tscn")
 var insect_msg = preload("res://scenes/insect_bubble.tscn")
 var platform_msg = preload("res://scenes/platform_bubble.tscn")
-var message_spawned = false
 @onready var player = $"../Player"
 
 func _ready() -> void:
-	if player != null and message_spawned == false:
+	if player != null and GameController.tutorial_completed == false:
 		ManageMessage()
-		message_spawned == true
+		GameController.tutorial_completed = true
 	
 func ManageMessage():
 		var move_instance = move_msg.instantiate()

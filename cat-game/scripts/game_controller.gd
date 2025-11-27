@@ -2,6 +2,7 @@ extends Node
 
 var total_insects := 0
 var total_score := 0
+var tutorial_completed = false
 
 func insect_collected(value: int):
 	total_insects += value
