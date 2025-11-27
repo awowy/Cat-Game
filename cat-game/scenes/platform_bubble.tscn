@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://wrjdpsybf7p0"]
+[gd_scene load_steps=3 format=3 uid="uid://wrjdpsybf7p0"]
 
+[ext_resource type="Script" uid="uid://ne0rf00as7to" path="res://scripts/bubble_anim.gd" id="1_0btow"]
 [ext_resource type="Texture2D" uid="uid://hokab5o4ebvg" path="res://assets/text_bubbles/pixel-speech-bubble (3).png" id="1_xkedf"]
 
 [node name="PlatformBubble" type="Node2D"]
+script = ExtResource("1_0btow")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.092, 0.092)
