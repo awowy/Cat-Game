@@ -10,7 +10,7 @@ size = Vector2(46, 11)
 a = Vector2(-8, 13.246414)
 b = Vector2(38, 13.246414)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" groups=["platform"]]
 script = ExtResource("1_1bif0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

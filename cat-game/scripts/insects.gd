@@ -18,6 +18,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		sfx_collect.play()
 		GameController.insect_collected(value)
+		DisableInsect()
+		
+		var disappear = create_tween()
+		disappear.tween_property(self, "modulate:a", 0.0, 0.25)
+		
+		await disappear.finished
 		self.queue_free()
 
 func EnableInsect():
