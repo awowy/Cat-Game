@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=25 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Script" uid="uid://bp5kwpmn3qrt5" path="res://scripts/main.gd" id="1_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ocil7uree6io" path="res://scenes/background_1.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dd1f74xns6x7" path="res://scenes/insects2.tscn" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://cuelqxs3y65s" path="res://scenes/text_bubble_manager.gd" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://mq2k4idgy4ev" path="res://scenes/pausemenu.tscn" id="17_pause"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a8y0u"]
 
@@ -237,6 +238,8 @@ position = Vector2(116.999985, -92.99999)
 scale = Vector2(0.597657, 0.597657)
 
 [node name="score_ui" parent="CanvasLayer" instance=ExtResource("11_eb6dy")]
+
+[node name="Pausemenu" parent="CanvasLayer" instance=ExtResource("17_pause")]
 
 [node name="Sprite2D" parent="." instance=ExtResource("11_ya4ey")]
 position = Vector2(4, -315)
