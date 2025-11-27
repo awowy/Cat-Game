@@ -8,7 +8,6 @@ var has_played: bool
 func _ready() -> void:
 	EventController.connect("game_over", reset_score)
 	EventController.connect("has_played", played)
-	EventController.connect("game_over", reset_score)
 	
 func insect_collected(value: int):
 	total_insects += value

@@ -86,7 +86,7 @@ func spawn_floor():
 		if platform_floor[i] > 0:
 			spawn_platform(platform_floor[i] - 1, x_positions[i], y_pos)
 			if collectibles[i] > 0:
-				spawn_insect(collectibles[i] - 1, x_positions[i] - 5, y_pos - 10)
+				spawn_insect(collectibles[i] - 1, x_positions[i], y_pos - 10)
 	if platform_floor == [0,0,0]:
 		spawn_platform(1, x_positions[1], y_pos)
 	floor_count += 1
