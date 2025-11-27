@@ -28,6 +28,7 @@ project/assembly_name="Cat Game"
 [global_group]
 
 Player=""
+player=""
 
 [input]
 
