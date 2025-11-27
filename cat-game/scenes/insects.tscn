@@ -8,7 +8,7 @@
 radius = 319.99997
 
 [node name="Insects" type="Node2D" groups=["Insect"]]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.03, 0.03)
 script = ExtResource("1_j8gca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
