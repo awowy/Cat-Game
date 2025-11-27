@@ -21,6 +21,7 @@ func pause():
 
 func testEsc():
 	if Input.is_action_just_pressed("Pause") and !get_tree().paused:
+		EventController.emit_signal("save_game")
 		pause()
 	elif Input.is_action_just_pressed("Pause") and get_tree().paused:
 		resume()
@@ -30,6 +31,7 @@ func _on_resume_pressed():
 	resume()
 
 func _on_restart_pressed() -> void:
+	EventController.emit_signal("game_over")
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

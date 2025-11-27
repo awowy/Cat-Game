@@ -9,7 +9,9 @@ func _ready() -> void:
 	EventController.connect("total_score", h_score_decider)
 	EventController.connect("high_score", high_score)
 	EventController.connect("game_over", end_handler)
-
+	EventController.connect("save_game", end_handler)
+	
+	
 func save_game(value: int):
 	var save_file = FileAccess.open("res://Save File.txt", FileAccess.WRITE)
 	var json_str = JSON.stringify(value)
@@ -33,4 +35,6 @@ func _notification(what: int) -> void:
 		
 
 func end_handler():
+	score = 0
+	EventController.emit_signal("total_score")
 	save_game(h_score)
