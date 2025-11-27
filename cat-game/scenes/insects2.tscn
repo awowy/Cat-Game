@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dd1f74xns6x7"]
 
 [ext_resource type="Script" uid="uid://h7e644ln5bsu" path="res://scripts/insects.gd" id="1_pnd6l"]
-[ext_resource type="Texture2D" uid="uid://c588eiljnsx48" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 2_butterfly.png" id="2_pnd6l"]
+[ext_resource type="Texture2D" uid="uid://b2ufvxrjv6kgw" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Lil insects/insect 2_butterfly.png" id="2_pnd6l"]
 [ext_resource type="AudioStream" uid="uid://ct4mibsxq6sey" path="res://assets/audios/metal-pipe-falling-sound-effect.mp3" id="3_lnyy5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww04n"]
 radius = 240.00003
 
-[node name="Insects" type="Node2D"]
+[node name="Insects" type="Node2D" groups=["Insect"]]
 scale = Vector2(0.05, 0.05)
 script = ExtResource("1_pnd6l")
 

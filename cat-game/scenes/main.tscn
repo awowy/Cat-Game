@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1g2emsj6dnqc"]
+[gd_scene load_steps=25 format=3 uid="uid://b1g2emsj6dnqc"]
 
 [ext_resource type="Texture2D" uid="uid://byxnhtip5eemc" path="res://assets/pengumpulan assets gng-20251122T123235Z-1-001/pengumpulan assets gng/Background/Untitled56_20251122125549.png" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://m6vufvgd1ucs" path="res://scenes/player.tscn" id="1_sugp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ylvle5wwvksp" path="res://scripts/camera.gd" id="5_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cj5qto4fg2mwq" path="res://scenes/insects.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dj8ocu35gc2ar" path="res://scripts/killzone.gd" id="6_trceg"]
+[ext_resource type="Script" uid="uid://gf35qo5y1h64" path="res://scenes/window.gd" id="7_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://bbykibi67y2wq" path="res://scenes/insects_ui.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://g38sm6kqv7ku" path="res://scenes/platform_1.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://qksx7wjcnp2f" path="res://scenes/platform_2.tscn" id="9_a8y0u"]
@@ -152,15 +153,17 @@ shape = SubResource("SegmentShape2D_tefeu")
 position = Vector2(4.5, 33.5)
 shape = SubResource("RectangleShape2D_jbj1t")
 
-[node name="windowplatform" type="StaticBody2D" parent="Placeholder"]
+[node name="windowplatform" type="StaticBody2D" parent="Placeholder" groups=["window"]]
+script = ExtResource("7_jbj1t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/windowplatform"]
 position = Vector2(72.5, -15)
 shape = SubResource("RectangleShape2D_jkv2x")
 one_way_collision = true
 
-[node name="windowplatform2" type="StaticBody2D" parent="Placeholder"]
+[node name="windowplatform2" type="StaticBody2D" parent="Placeholder" groups=["window"]]
 position = Vector2(-144, 1)
+script = ExtResource("7_jbj1t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/windowplatform2"]
 position = Vector2(73, -14)
