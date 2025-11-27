@@ -148,7 +148,7 @@ scale = Vector2(0.20377605, 0.2)
 texture = ExtResource("2_jbj1t")
 
 [node name="Player" parent="." instance=ExtResource("1_sugp2")]
-position = Vector2(0, 27)
+position = Vector2(0, 27.74)
 scale = Vector2(0.9950222, 1)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_jyhfs")]
