@@ -33,7 +33,7 @@ size = Vector2(311, 11)
 size = Vector2(45, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(77, 15)
+size = Vector2(112, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 size = Vector2(223, 8.0160675)
@@ -173,8 +173,8 @@ shape = SubResource("WorldBoundaryShape2D_a8y0u")
 [node name="Placeholder" type="Node" parent="."]
 
 [node name="PlaceholderGround5" parent="Placeholder" instance=ExtResource("3_tbgi4")]
-position = Vector2(5, -150)
-scale = Vector2(0.419, 0.308)
+position = Vector2(5, -83.59)
+scale = Vector2(0.309, 0.308)
 
 [node name="Area2D" type="Area2D" parent="Placeholder/PlaceholderGround5"]
 
@@ -209,7 +209,7 @@ one_way_collision = true
 position = Vector2(-1, -105)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Placeholder/ground2"]
-position = Vector2(4, 29)
+position = Vector2(7, -41)
 shape = SubResource("RectangleShape2D_a8y0u")
 one_way_collision = true
 

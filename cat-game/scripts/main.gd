@@ -4,7 +4,7 @@ func _ready() -> void:
 	load_game()
 
 func load_game():
-	var save_file = FileAccess.open("res://Save File.txt", FileAccess.READ)
+	var save_file = FileAccess.open("user://Save File.txt", FileAccess.READ)
 	var json_str = save_file.get_line()
 	if json_str != "":
 		var json = JSON.new()

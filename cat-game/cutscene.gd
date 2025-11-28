@@ -15,7 +15,6 @@ var tween_start = Tween
 var tween_stop = Tween
 
 func _ready() -> void:
-	print(skip_btn.position)
 	for idx in range(pics.size()):
 		if pics[idx] == null:
 			push_error("Cutscene.gd: node 'pic%d' not found. Check the node name and that the script is attached to the correct scene." % (idx + 1))

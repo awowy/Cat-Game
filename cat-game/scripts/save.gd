@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	
 func save_game(value: int):
-	var save_file = FileAccess.open("res://Save File.txt", FileAccess.WRITE)
+	var save_file = FileAccess.open("user://Save File.txt", FileAccess.WRITE)
 	var json_str = JSON.stringify(value)
 	save_file.store_line(json_str)
 
